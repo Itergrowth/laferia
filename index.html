@@ -18,7 +18,7 @@
    con el verde de WhatsApp reservado solo para la acción principal. */
 :root{
   --cream:#fffaf4; --paper:#f7f3ee; --sky:#cfe6ee; --sky-soft:#e6f1f4; --blue:#7cacc8; --blue-deep:#2c6a92;
-  --ink:#2f4654; --ink-soft:#5d7380; --tan:#e2bfa3; --tan-deep:#b98a66; --rose:#dccfcb; --line:#d9e5ea;
+  --ink:#2f4654; --ink-soft:#5d7380; --tan:#e2bfa3; --tan-deep:#b98a66; --tan-ink:#855835; --rose:#dccfcb; --line:#d9e5ea;
   --wa:#25d366; --wa-ink:#0b3d22; --white:#ffffff;
   --display:"Fredoka","Rubik",system-ui,sans-serif; --body:"Rubik",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
   --r:22px; --shadow:0 10px 30px -14px rgba(44,106,146,.35);
@@ -29,7 +29,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--cream)}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 h1,h2,h3{font-family:var(--display);color:var(--blue-deep);line-height:1.08;margin:0;text-wrap:balance;font-weight:600}
 h1{font-size:clamp(2.6rem,7.2vw,5rem);letter-spacing:-.01em}
 h2{font-size:clamp(1.9rem,4.4vw,3rem)}
@@ -39,7 +39,7 @@ a{color:var(--blue-deep)}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--blue-deep);outline-offset:3px;border-radius:8px}
 .wrap{max-width:1160px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
-.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--tan-deep)}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--tan-ink)}
 .lead{font-size:1.15rem;color:var(--ink-soft);max-width:58ch}
 .hand{font-family:var(--hand);font-size:1.6rem;color:var(--blue);line-height:1}
 .sec{padding-block:clamp(56px,8vw,104px)}
@@ -67,14 +67,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav{display:flex;gap:22px;margin-left:auto}
 .nav a{text-decoration:none;color:var(--ink);font-weight:500;font-size:.98rem}
 .nav a:hover{color:var(--blue-deep)}
-@media (max-width:860px){.nav{display:none}.top .btn{margin-left:auto}}
+.subnav{display:none}
+@media (max-width:860px){.nav{display:none}.top .btn{margin-left:auto}html{scroll-padding-top:128px}.top .wrap{min-height:60px}.subnav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 var(--gr) 10px var(--gl)}.subnav::-webkit-scrollbar{display:none}.subnav a{flex:none;text-decoration:none;font-weight:500;font-size:.9rem;color:var(--blue-deep);background:var(--sky-soft);border-radius:999px;padding:7px 14px;min-height:36px;display:flex;align-items:center}}
 
 /* hero */
 .awning{height:54px}
 .hero{background:linear-gradient(var(--sky-soft),var(--cream) 70%);overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,80px)}
 .hero-copy{display:grid;gap:22px;min-width:0}
-.hero h1 em{font-style:normal;color:var(--tan-deep);position:relative;white-space:nowrap}
+.hero h1 em{font-style:normal;color:var(--tan-ink);position:relative;white-space:nowrap}
 .hero h1 em svg{position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.28em}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .micro{font-size:.92rem;color:var(--ink-soft)}
@@ -93,7 +94,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 @keyframes rock{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
 .cloud{position:absolute;opacity:.9;animation:drift 26s linear infinite alternate;pointer-events:none}
 @keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(40px)}}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.collage{max-width:420px}}
+@media (max-width:860px){.awning{height:26px}.hero .wrap{display:flex;flex-direction:column;align-items:stretch;gap:14px;padding-block:14px 44px}.hero .eyebrow{font-size:.7rem;letter-spacing:.1em}.hero .lead{font-size:1.05rem}.hero-copy{display:contents}.hero .eyebrow{order:1}.hero h1{order:2}.collage{order:3;max-width:330px;aspect-ratio:1/.68}.hero .lead{order:4}.hero .cta-row{order:5}.hero .micro{order:6}.hero .chips{order:7}.hero .cta-row .btn-wa{width:100%}.hide-m{display:none!important}.collage .a{inset:4% 30% 6% 0}.collage .b{inset:24% 0 0 50%}.collage .c{inset:60% 46% 0 22%}.collage .tag{top:-6%}.collage .tag svg{width:64px;height:56px}}
 
 /* contraste casa */
 .home{background:var(--blue-deep);color:var(--white)}
@@ -108,7 +109,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* calculadora */
 .calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--white);border-radius:var(--r);padding:clamp(20px,3.4vw,34px);box-shadow:var(--shadow);margin-bottom:44px}
 .calc label{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--blue-deep);display:block;margin-bottom:10px}
-.calc output{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--tan-deep);font-variant-numeric:tabular-nums;line-height:1}
+.calc output{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--tan-ink);font-variant-numeric:tabular-nums;line-height:1}
 .calc input[type=range]{width:100%;accent-color:var(--blue-deep);height:34px}
 .calc-res{background:var(--sky-soft);border-radius:18px;padding:18px 20px;display:grid;gap:6px}
 .calc-res strong{font-family:var(--display);font-size:1.25rem;color:var(--blue-deep)}
@@ -124,35 +125,45 @@ button{font:inherit;color:inherit;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--blue-deep);color:var(--white);box-shadow:none}
 .pack{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;background:var(--sky);border-radius:18px;padding:16px 20px;margin-bottom:22px}
 .pack b{font-family:var(--display);font-size:1.2rem;color:var(--blue-deep)}
-.pack .price{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--blue-deep);font-variant-numeric:tabular-nums;margin-left:auto}
 .pack p{flex-basis:100%;font-size:.95rem;color:var(--ink-soft)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
 .card{background:var(--white);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 0 var(--line);position:relative}
-.card .ph{aspect-ratio:4/4.4;overflow:hidden;background:var(--sky);border:0;padding:0;display:block;width:100%}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.card:hover .ph img{transform:scale(1.05)}
+#progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:4px;background:var(--tan);transform-origin:0 50%;transform:scaleX(0);z-index:70;pointer-events:none}
+.card{transition:transform .25s,box-shadow .25s}
+@media (hover:hover){.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}}
+.phw{position:relative}
+.card .ph{aspect-ratio:4/4.4;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:var(--sky);cursor:pointer;width:100%}
+.card .ph::-webkit-scrollbar{display:none}
+.card .ph img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.dots i{width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.65);box-shadow:0 0 0 1px rgba(40,70,90,.18);transition:width .2s}
+.dots i.on{width:22px;background:var(--white)}
+.arr{position:absolute;top:50%;right:10px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,250,244,.92);color:var(--blue-deep);font-size:1.4rem;line-height:1;display:none;box-shadow:var(--shadow)}
+@media (hover:hover){.card:hover .arr,.arr:focus-visible{display:block}}
 .badge{position:absolute;top:12px;left:12px;background:var(--cream);color:var(--blue-deep);font-weight:600;font-size:.8rem;padding:5px 11px;border-radius:999px}
-.card .bd{padding:16px 18px 18px;display:grid;gap:8px;flex:1;align-content:start}
+.card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .card .bd p{font-size:.95rem;color:var(--ink-soft)}
-.card .meta{font-size:.84rem;color:var(--tan-deep);font-weight:600}
-.card .row{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.card .meta{font-size:.84rem;color:var(--tan-ink);font-weight:600}
+.card .row{display:flex;gap:8px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
 .pick{border:0;background:var(--sky-soft);color:var(--blue-deep);border-radius:999px;padding:9px 14px;font-weight:600;font-size:.92rem;min-height:44px;flex:1}
 .pick[aria-pressed=true]{background:var(--blue-deep);color:var(--white)}
 .more{border:0;background:none;color:var(--blue-deep);font-weight:600;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;min-height:44px;padding:0 6px}
 .extras{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:22px}
 .extra{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:16px;padding:10px 12px 10px 16px;box-shadow:0 2px 0 var(--line)}
 .extra span{flex:1;font-weight:500;min-width:0}
-.extra b{font-family:var(--display);color:var(--blue-deep);font-variant-numeric:tabular-nums}
 .extra .pick{flex:none;padding:6px 12px;min-height:40px}
 .note{font-size:.9rem;color:var(--ink-soft);margin-top:20px}
 
 /* pelotero */
 .pit{background:var(--sky-soft)}
+.pit-chip{display:inline-block;background:var(--white);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:600;color:var(--tan-ink)}
 .pit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
 .pit-box{position:relative;border-radius:26px;overflow:hidden;background:var(--white);box-shadow:var(--shadow);border:8px solid var(--white)}
-.pit-box::before{content:"";position:absolute;inset:auto 0 0;height:42%;background:repeating-linear-gradient(90deg,#d9dde0 0 16px,#fff 16px 32px);opacity:.55}
+.pit-box::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:var(--funda,repeating-linear-gradient(90deg,#cfd4d8 0 16px,#fff 16px 32px));border-top:4px solid var(--white);pointer-events:none;z-index:2;box-shadow:0 -6px 14px -8px rgba(40,70,90,.35)}
 #pit{display:block;width:100%;height:340px;position:relative;touch-action:pan-y}
-.swatches{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px}
+.pit-lb{font-weight:600;font-size:.92rem;margin-top:14px;display:block}
+.pit .opts{margin:8px 0 4px}
 .sw{display:flex;align-items:center;gap:8px;border:0;background:var(--white);border-radius:999px;padding:7px 14px 7px 8px;font-size:.92rem;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);min-height:44px}
 .sw i{width:26px;height:26px;border-radius:50%;background:var(--c);box-shadow:inset -3px -4px 6px rgba(0,0,0,.14)}
 .sw[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--blue-deep);background:var(--cream)}
@@ -164,21 +175,22 @@ button{font:inherit;color:inherit;cursor:pointer}
 .steps li::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:1.3rem;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--blue-deep);margin-bottom:6px}
 .steps li.pay::before{background:var(--tan);color:var(--white)}
 .steps p{color:var(--ink-soft);font-size:.98rem}
-.steps .who{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tan-deep)}
+.steps .who{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tan-ink)}
 .split{display:flex;height:16px;border-radius:999px;overflow:hidden;margin-top:6px;font-size:0}
-.split i{flex:1;background:var(--tan)}.split i+i{background:var(--sky)}
+.split i{flex:1;background:var(--tan);transform-origin:0 50%}.split i+i{background:var(--sky)}
 .split.b i{background:var(--sky)}.split.b i+i{background:var(--tan)}
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.steps{grid-template-columns:1fr}}
 .assure{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;margin-top:30px;background:var(--blue-deep);color:var(--white);border-radius:var(--r);padding:22px 26px}
 .assure p{font-family:var(--display);font-size:1.2rem;max-width:34ch}
+.btn-white{background:var(--white);color:var(--blue-deep)}
 
 /* quiénes somos */
 .about{background:var(--cream);position:relative}
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,72px);align-items:center}
 .duo{position:relative;max-width:420px;margin-inline:auto;width:100%}
 .duo .disc{position:absolute;inset:14% 4% 0;border-radius:50% 50% 46% 54%/56% 52% 48% 44%;background:var(--sky)}
-.duo img{position:relative;width:100%}
+.duo img{position:relative;width:100%;height:auto}
 .duo .hand{position:absolute;font-size:2rem}
 .duo .n1{left:0;top:30%;transform:rotate(-8deg)}
 .duo .n2{right:0;top:24%;transform:rotate(7deg)}
@@ -196,7 +208,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .faq details{background:var(--white);border-radius:18px;padding:0 20px;box-shadow:0 2px 0 var(--line)}
 .faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;font-family:var(--display);font-weight:500;font-size:1.1rem;color:var(--blue-deep);position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.6rem;color:var(--tan-deep)}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.6rem;color:var(--tan-ink)}
 .faq details[open] summary::after{content:"–"}
 .faq details p{padding:0 0 18px;color:var(--ink-soft);max-width:66ch}
 
@@ -213,10 +225,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* barra fija */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(255,250,244,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);display:flex;gap:12px;align-items:center;justify-content:center}
 .bar{transition:transform .3s,opacity .3s}.bar.off{transform:translateY(120%);opacity:0;pointer-events:none}
-.bar .sel{font-size:.92rem;font-weight:500;min-width:0}
+.bar .sel{font-size:.92rem;font-weight:600;min-width:0;border:0;background:var(--white);color:var(--ink);border-radius:999px;padding:10px 16px;min-height:48px;box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
 .bar .sel b{color:var(--blue-deep)}
+.tray-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tray-list li{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:16px;padding:8px 8px 8px 10px;box-shadow:inset 0 0 0 1px var(--line)}
+.tray-list img{width:52px;height:52px;border-radius:12px;object-fit:cover;flex:none;background:var(--sky)}
+.tray-list span{flex:1;font-weight:500;min-width:0}
+.tray-list small{display:block;color:var(--ink-soft);font-weight:400;font-size:.82rem}
+.tray-list button{border:0;background:var(--sky-soft);color:var(--blue-deep);border-radius:999px;min-width:44px;min-height:44px;font-size:1.1rem}
 .bar .btn{flex:1;max-width:420px}
-@media (min-width:861px){.bar{left:auto;right:max(20px, env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));border:0;background:none;backdrop-filter:none;padding:0}.bar .btn{flex:none;box-shadow:0 16px 34px -12px rgba(37,211,102,.95)}.bar .sel{background:var(--white);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow)}}
+@media (min-width:861px){.bar{left:auto;right:max(20px, env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));border:0;background:none;backdrop-filter:none;padding:0}.bar .btn{flex:none;box-shadow:0 16px 34px -12px rgba(37,211,102,.95)}.bar .sel{box-shadow:var(--shadow)}}
 
 /* diálogos */
 dialog{border:0;padding:0;border-radius:26px;background:var(--cream);color:var(--ink);width:min(640px,calc(100vw - 24px));max-height:calc(100dvh - 24px);box-shadow:0 30px 80px -20px rgba(20,50,70,.6)}
@@ -251,6 +269,7 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
 </head>
 <body>
 
+<div id="progress" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="La Feria, inicio">
@@ -260,11 +279,15 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
     <nav class="nav" aria-label="Secciones">
       <a href="#propuestas">Propuestas</a>
       <a href="#como-funciona">Cómo funciona</a>
+      <a href="#pelotero">Armá tu pelotero</a>
       <a href="#quienes-somos">Quiénes somos</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <button class="btn btn-wa btn-sm" data-quiz>Consultar fecha</button>
+    <button class="btn btn-blue btn-sm" data-quiz>Consultar fecha</button>
   </div>
+  <nav class="subnav" aria-label="Secciones">
+    <a href="#propuestas">Propuestas</a><a href="#como-funciona">Cómo funciona</a><a href="#pelotero">Armá tu pelotero</a><a href="#quienes-somos">Quiénes somos</a><a href="#preguntas">Preguntas</a>
+  </nav>
 </header>
 
 <main id="inicio">
@@ -281,9 +304,9 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.400 1.300-2 1.400-.5.1-1.200.1-1.900-.1-.4-.1-1-.3-1.700-.6-3-1.300-4.900-4.300-5.100-4.500-.1-.2-1.200-1.600-1.200-3s.8-2.200 1-2.500c.3-.3.600-.3.800-.3h.6c.2 0 .4-.1.7.5l1 2.300c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.800 1.300 1.700 2.100 1.200 1 2.100 1.400 2.400 1.500.3.2.5.1.7-.1l1-1.200c.2-.3.4-.2.7-.1l2.200 1c.3.2.5.200.6.4.1.100.1.600-.1 1.300Z"/></svg>
           Consultar fecha por WhatsApp
         </button>
-        <a class="btn btn-ghost" href="#propuestas">Ver propuestas</a>
+        <a class="btn btn-ghost hide-m" href="#propuestas">Ver propuestas</a>
       </div>
-      <p class="micro">Respondé 5 preguntas rápidas y te llega la disponibilidad sin idas y vueltas.</p>
+      <p class="micro">Son 3 pasos cortos y te llega la disponibilidad sin idas y vueltas.</p>
       <ul class="chips">
         <li>Creado por docentes de nivel inicial</li>
         <li>Armado y retiro a nuestro cargo</li>
@@ -359,24 +382,7 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
     <div id="pack"></div>
     <div class="grid" id="grid"></div>
     <div class="extras" id="extras" hidden></div>
-    <p class="note">Valores de referencia. El precio queda congelado al abonar la seña. El traslado se cotiza según la ubicación del evento. El alquiler no incluye animación ni coordinación.</p>
-  </div>
-</section>
-
-<section class="pit" id="pelotero">
-  <div class="wrap sec">
-    <div class="pit-grid">
-      <div>
-        <div class="sec-head" style="margin-bottom:8px">
-          <p class="eyebrow">Probalo acá</p>
-          <h2>Armá tu pelotero</h2>
-          <p class="lead">Las pelotas blancas se combinan con los tonos que elijas. Tocá hasta 3 colores y mové las pelotas con el dedo o el mouse.</p>
-        </div>
-        <div class="swatches" id="swatches"></div>
-        <button class="btn btn-blue" id="pit-add">Sumar pelotero con estos colores</button>
-      </div>
-      <div class="pit-box"><canvas id="pit" aria-label="Pelotero interactivo con las pelotas en los colores elegidos" role="img"></canvas></div>
-    </div>
+    <p class="note">Sumá lo que te guste y te pasamos el presupuesto por WhatsApp, con el traslado según la ubicación del evento. El alquiler no incluye animación ni coordinación.</p>
   </div>
 </section>
 
@@ -397,7 +403,27 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
     </ol>
     <div class="assure">
       <p>¿Ya tenés fecha? Los fines de semana son los primeros en reservarse.</p>
-      <button class="btn btn-wa" data-quiz>Consultar mi fecha</button>
+      <button class="btn btn-white" data-quiz>Consultar mi fecha</button>
+    </div>
+  </div>
+</section>
+
+<section class="pit" id="pelotero">
+  <div class="wrap sec">
+    <div class="pit-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:8px">
+          <p><span class="pit-chip">Jugá un ratito</span></p>
+          <h2>Armá tu súper pelotero</h2>
+          <p class="lead">Elegí la funda y hasta 3 colores para combinar con las pelotas blancas. Después movelas con el dedo o el mouse.</p>
+        </div>
+        <span class="pit-lb" id="lb-funda">Funda</span>
+        <div class="opts" id="fundas" role="group" aria-labelledby="lb-funda"></div>
+        <span class="pit-lb" id="lb-col">Colores de pelotas</span>
+        <div class="swatches" id="swatches" role="group" aria-labelledby="lb-col"></div>
+        <button class="btn btn-blue" id="pit-add">Sumar este pelotero a mi consulta</button>
+      </div>
+      <div class="pit-box" id="pit-box"><canvas id="pit" aria-label="Pelotero interactivo con las pelotas en los colores elegidos" role="img"></canvas></div>
     </div>
   </div>
 </section>
@@ -470,7 +496,7 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
 </footer>
 
 <div class="bar off" id="bar">
-  <span class="sel" id="sel" hidden></span>
+  <button class="sel" id="sel" hidden></button>
   <button class="btn btn-wa" data-quiz id="bar-btn">Consultar por WhatsApp</button>
 </div>
 
@@ -479,6 +505,14 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
     <div class="dlg-head"><h3 id="d-title"></h3><button class="x" data-close aria-label="Cerrar">×</button></div>
     <div class="dlg-body" id="d-body"></div>
     <div class="dlg-foot"><button class="pick" id="d-pick" style="flex:none"></button><button class="btn btn-wa btn-sm" id="d-ask">Consultar esta propuesta</button></div>
+  </div>
+</dialog>
+
+<dialog id="tray" aria-labelledby="t-title">
+  <div class="dlg">
+    <div class="dlg-head"><h3 id="t-title">Tu selección</h3><button class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="dlg-body" id="t-body"></div>
+    <div class="dlg-foot"><button class="btn btn-ghost btn-sm" data-close>Seguir eligiendo</button><button class="btn btn-wa btn-sm" data-quiz>Pedir presupuesto</button></div>
   </div>
 </dialog>
 
@@ -496,17 +530,17 @@ dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
 "use strict";
 var WA="5492233034727";
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-var money=function(n){return "$"+n.toLocaleString("es-AR")};
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
 
 /* ---------- Catálogo ---------- */
 var CATS=[
- {id:"plazas",name:"Plazas",pack:{t:"Plaza + Calesita",p:320000,d:"Elegí una plaza (Blanca, Pastel o Pelotero) y viene con la calesita."}},
- {id:"tematicas",name:"Plazas temáticas",pack:{t:"Plaza temática",p:370000,d:"Valor por cada plaza. Juegos más ambientación completa del tema."}},
- {id:"sectores",name:"Sectores de juego",pack:{t:"2 sectores a elección",p:320000,d:"Combiná dos: calesita, mercaditos, heladería, pizzería, cocinita o súper pelotero."}},
- {id:"superpelotero",name:"Súper pelotero temático",pack:{t:"Súper pelotero con temática",p:350000,d:"Pelotero de 2 × 2 m con tobogán y ambientación. Podés sumar el granero, la casita bosque o las columnas con cartel de dinosaurios."}},
- {id:"mobiliario",name:"Mobiliario",pack:{t:"Para sentarse y merendar",p:0,d:"El mobiliario es un adicional de los sectores de juego. No se alquila solo."}},
- {id:"adicionales",name:"Adicionales",pack:{t:"Sumale más diversión",p:0,d:"Extras para agregar a cualquier propuesta."}}
+ {id:"destacadas",name:"Destacadas",pack:{t:"Para empezar a elegir",d:"Una selección de plazas y sectores. En las pestañas está el catálogo completo."}},
+ {id:"plazas",name:"Plazas",pack:{t:"Plaza + Calesita",d:"Elegí una plaza (Blanca, Pastel o Pelotero) y viene con la calesita."}},
+ {id:"tematicas",name:"Plazas temáticas",pack:{t:"Plaza temática",d:"Juegos más la ambientación completa de cada tema."}},
+ {id:"sectores",name:"Sectores de juego",pack:{t:"2 sectores a elección",d:"Combiná dos: calesita, mercaditos, heladería, pizzería, cocinita o súper pelotero."}},
+ {id:"superpelotero",name:"Súper pelotero temático",pack:{t:"Súper pelotero con temática",d:"Pelotero de 2 × 2 m con tobogán y ambientación. Podés sumar el granero, la casita bosque o las columnas con cartel de dinosaurios."}},
+ {id:"mobiliario",name:"Mobiliario",pack:{t:"Para sentarse y merendar",d:"El mobiliario es un adicional de los sectores de juego. No se alquila solo."}},
+ {id:"adicionales",name:"Adicionales",pack:{t:"Sumale más diversión",d:"Extras para agregar a cualquier propuesta."}}
 ];
 var ITEMS=[
  {id:"plaza-blanca",c:"plazas",n:"Plaza Blanca o Pastel",age:"Hasta 4 años",img:["plaza-blanca-1","plaza-blanca-2"],d:"Circuito de madera para trepar, deslizarse y hacer equilibrio.",inc:["Tobogán","Sube y baja","Balancín","Cubo con cilindro","Triángulo con rampa","Caballito de madera","2 tablas de equilibrio","Carpa tipi","Alfombra de pasto sintético (2 × 1,60 m)"]},
@@ -522,60 +556,88 @@ var ITEMS=[
  {id:"cocina",c:"sectores",n:"Cocina",img:["cocina-1","cocina-2"],d:"Una cocinita completa con electrodomésticos de madera.",inc:["Mueble de cocina","Mueble estantería con 4 electrodomésticos de madera (licuadora, cafetera, batidora y tostadora)","Set de ollas de metal","Bandeja con juego de té","Mesa con dos sillas","Comidas de tela","Delantal"]},
  {id:"calesita",c:"sectores",n:"Calesita",img:["calesita-2","calesita-1"],d:"La estrella de la feria. Techo rosa o gris con rayas blancas, o blanco con puntilla.",inc:["Techo rosa con rayas blancas","Techo gris con rayas blancas","Techo blanco con puntilla","Capacidad hasta 150 kg"],warn:"Solo se alquila en planta baja o en espacios con acceso por rampa."},
  {id:"superpelotero",c:"sectores",n:"Súper pelotero con tobogán",img:["superpelotero-1","superpelotero-3","superpelotero-2"],d:"2 × 2 m de pelotas blancas combinables con el color que quieras.",inc:["Tamaño: 2 × 2 m","Tobogán","Funda rayada gris y blanca, blanca lisa o símil tronco","Pelotas blancas combinables con gris, rosa pastel, celeste, verde agua, amarillo, rojo, azul, negro, ocre, verde o fucsia"]},
- {id:"sp-osos",c:"superpelotero",n:"Súper pelotero Osos",img:["sp-osos-1"],full:1,d:"Con luna, cubos A B C y carpa tipi con sillón.",inc:["Súper pelotero con tobogán","4 osos","Luna con hamaca decorativa","3 cubos decorativos (A, B y C)","1 carpa tipi con sillón doble Gervasoni"]},
- {id:"sp-selva",c:"superpelotero",n:"Súper pelotero Selva",img:["sp-selva-1"],full:1,d:"León, jirafas, elefante y fueguito de exploradores.",inc:["Súper pelotero con tobogán","1 león","1 cocodrilo","3 jirafas","1 elefante","3 carteles decorativos","2 almohadones","1 fueguito","1 carpa tipi con sillita"]},
- {id:"sp-granja",c:"superpelotero",n:"Súper pelotero Granja",img:["sp-granja-1"],full:1,d:"Animales de granja, cocina chica y cajón de verduras.",inc:["Súper pelotero con tobogán","2 chanchos","1 gato","1 caballo","2 gallinas","2 caballos de palo","1 pato","Cubos símil fardos","Cocina chica","Mesa con dos sillas","Cajón con verduras","2 almohadones de arpillera"],warn:"No incluye granero. Consultá el valor para sumarlo."},
- {id:"sp-bosque",c:"superpelotero",n:"Súper pelotero Bosque",img:["sp-bosque-1"],full:1,d:"Ardillas, zorros, hongos y pinos decorativos.",inc:["Súper pelotero con tobogán","2 ardillas","1 ciervo pequeño","1 conejito","1 zorro rojo","1 zorro blanco y negro","1 mapache","1 suricata","2 hongos decorativos","2 pinos decorativos","2 troncos","2 carteles decorativos","2 almohadones símil tronco","1 carpa tipi con sillita"],warn:"No incluye casita bosque. Consultá el valor para sumarla."},
- {id:"sp-jurassic",c:"superpelotero",n:"Súper pelotero Jurassic",img:["sp-jurassic-1"],full:1,d:"Dinosaurios, garras y binoculares para explorar.",inc:["Súper pelotero con tobogán","4 dinosaurios de goma","1 garra de goma","1 dino títere de goma (cabeza)","2 dinos con palo","3 cubos decorativos","3 carteles decorativos","2 almohadones de arpillera","1 carpa tipi con sillita","Binoculares"],warn:"No incluye columnas con cartel. Consultá el valor para sumarlas."},
- {id:"costa",c:"mobiliario",n:"Sector Costa",price:"12 lugares "+money(80000),img:["costa-1","costa-2"],d:"Mesas bajas de madera con sillas playeras o de junco. También para 18 ("+money(120000)+") o 24 chicos ("+money(160000)+").",inc:["2 mesas de madera rectangulares","Medida: 1,20 × 0,80 × 0,45 m","12 sillas playeras o de junco","Opción para 18 lugares: "+money(120000),"Opción para 24 lugares: "+money(160000)]},
- {id:"malibu",c:"mobiliario",n:"Sector Malibú o Pampa",price:"12 lugares "+money(80000),img:["malibu-2","malibu-1"],d:"Mesas redondas blancas. Malibú con sillas playeras, Pampa con sillas de junco.",inc:["3 mesas redondas con tapa blanca","12 sillas playeras (Malibú) o de junco (Pampa)"]},
- {id:"living-gervasoni",c:"mobiliario",n:"Mini living Gervasoni",price:money(50000),img:["living-gervasoni-1","living-gervasoni-2"],d:"Un living a su medida, con 6 lugares.",inc:["2 sillones mini Gervasoni","2 bancos muelita","1 mesa redonda","2 banquitos redondos","2 carpas tipi"]},
- {id:"living-playero",c:"mobiliario",n:"Mini living Playero",price:money(50000),img:["living-playero-1","living-playero-2"],d:"Estilo playero con junco y madera, con 6 lugares.",inc:["1 sillón doble playero","2 sillas de junco","1 mesa rectangular","2 banquitos cuadrados","2 carpas tipi"]},
- {id:"living-blanco",c:"mobiliario",n:"Mini living Gervasoni blanco",price:money(50000),img:["living-blanco-2","living-blanco-1"],d:"Todo en blanco, con 6 lugares.",inc:["2 sillones dobles Gervasoni","2 sillones mini Gervasoni","1 mesa rectangular blanca","2 carpas tipi"]},
- {id:"bloques",c:"adicionales",n:"Bloques grandes por 60",price:money(50000),img:["bloques-1"],d:"40 blancos combinables con rojo, verde, azul o amarillo.",inc:["60 bloques grandes","40 blancos combinables con rojo, verde, azul o amarillo"]},
- {id:"patapata",c:"adicionales",n:"Moto pata pata",price:money(35000),img:["patapata-1"],d:"Para andar empujándose con los pies.",inc:["1 moto pata pata"]},
- {id:"autos",c:"adicionales",n:"Pista de autos",price:money(25000),img:["autos-1"],d:"Alfombra de lona con calles y 8 autitos.",inc:["Alfombra pista de lona","8 autitos"]},
- {id:"rayuela",c:"adicionales",n:"Lona rayuela",price:money(15000),img:["rayuela-1"],d:"La rayuela de siempre, lista para saltar.",inc:["Alfombra rayuela de lona"]}
+ {id:"sp-osos",c:"superpelotero",n:"Súper pelotero Osos",img:["sp-osos-1"],th:["sp-osos-t"],full:1,d:"Con luna, cubos A B C y carpa tipi con sillón.",inc:["Súper pelotero con tobogán","4 osos","Luna con hamaca decorativa","3 cubos decorativos (A, B y C)","1 carpa tipi con sillón doble Gervasoni"]},
+ {id:"sp-selva",c:"superpelotero",n:"Súper pelotero Selva",img:["sp-selva-1"],th:["sp-selva-t"],full:1,d:"León, jirafas, elefante y fueguito de exploradores.",inc:["Súper pelotero con tobogán","1 león","1 cocodrilo","3 jirafas","1 elefante","3 carteles decorativos","2 almohadones","1 fueguito","1 carpa tipi con sillita"]},
+ {id:"sp-granja",c:"superpelotero",n:"Súper pelotero Granja",img:["sp-granja-1"],th:["sp-granja-t"],full:1,d:"Animales de granja, cocina chica y cajón de verduras.",inc:["Súper pelotero con tobogán","2 chanchos","1 gato","1 caballo","2 gallinas","2 caballos de palo","1 pato","Cubos símil fardos","Cocina chica","Mesa con dos sillas","Cajón con verduras","2 almohadones de arpillera"],warn:"No incluye granero. Consultá el valor para sumarlo."},
+ {id:"sp-bosque",c:"superpelotero",n:"Súper pelotero Bosque",img:["sp-bosque-1"],th:["sp-bosque-t"],full:1,d:"Ardillas, zorros, hongos y pinos decorativos.",inc:["Súper pelotero con tobogán","2 ardillas","1 ciervo pequeño","1 conejito","1 zorro rojo","1 zorro blanco y negro","1 mapache","1 suricata","2 hongos decorativos","2 pinos decorativos","2 troncos","2 carteles decorativos","2 almohadones símil tronco","1 carpa tipi con sillita"],warn:"No incluye casita bosque. Consultá el valor para sumarla."},
+ {id:"sp-jurassic",c:"superpelotero",n:"Súper pelotero Jurassic",img:["sp-jurassic-1"],th:["sp-jurassic-t"],full:1,d:"Dinosaurios, garras y binoculares para explorar.",inc:["Súper pelotero con tobogán","4 dinosaurios de goma","1 garra de goma","1 dino títere de goma (cabeza)","2 dinos con palo","3 cubos decorativos","3 carteles decorativos","2 almohadones de arpillera","1 carpa tipi con sillita","Binoculares"],warn:"No incluye columnas con cartel. Consultá el valor para sumarlas."},
+ {id:"costa",c:"mobiliario",n:"Sector Costa",cap:"12, 18 o 24 lugares",img:["costa-1","costa-2"],d:"Mesas bajas de madera con sillas playeras o de junco.",inc:["2 mesas de madera rectangulares","Medida: 1,20 × 0,80 × 0,45 m","12 sillas playeras o de junco","También disponible para 18 o 24 lugares"]},
+ {id:"malibu",c:"mobiliario",n:"Sector Malibú o Pampa",cap:"12 lugares",img:["malibu-2","malibu-1"],d:"Mesas redondas blancas. Malibú con sillas playeras, Pampa con sillas de junco.",inc:["3 mesas redondas con tapa blanca","12 sillas playeras (Malibú) o de junco (Pampa)"]},
+ {id:"living-gervasoni",c:"mobiliario",n:"Mini living Gervasoni",cap:"6 lugares",img:["living-gervasoni-1","living-gervasoni-2"],d:"Un living a su medida, con 6 lugares.",inc:["2 sillones mini Gervasoni","2 bancos muelita","1 mesa redonda","2 banquitos redondos","2 carpas tipi"]},
+ {id:"living-playero",c:"mobiliario",n:"Mini living Playero",cap:"6 lugares",img:["living-playero-1","living-playero-2"],d:"Estilo playero con junco y madera, con 6 lugares.",inc:["1 sillón doble playero","2 sillas de junco","1 mesa rectangular","2 banquitos cuadrados","2 carpas tipi"]},
+ {id:"living-blanco",c:"mobiliario",n:"Mini living Gervasoni blanco",cap:"6 lugares",img:["living-blanco-2","living-blanco-1"],d:"Todo en blanco, con 6 lugares.",inc:["2 sillones dobles Gervasoni","2 sillones mini Gervasoni","1 mesa rectangular blanca","2 carpas tipi"]},
+ {id:"bloques",c:"adicionales",n:"Bloques grandes por 60",img:["bloques-1"],d:"40 blancos combinables con rojo, verde, azul o amarillo.",inc:["60 bloques grandes","40 blancos combinables con rojo, verde, azul o amarillo"]},
+ {id:"patapata",c:"adicionales",n:"Moto pata pata",img:["patapata-1"],d:"Para andar empujándose con los pies.",inc:["1 moto pata pata"]},
+ {id:"autos",c:"adicionales",n:"Pista de autos",img:["autos-1"],d:"Alfombra de lona con calles y 8 autitos.",inc:["Alfombra pista de lona","8 autitos"]},
+ {id:"rayuela",c:"adicionales",n:"Lona rayuela",img:["rayuela-1"],d:"La rayuela de siempre, lista para saltar.",inc:["Alfombra rayuela de lona"]}
 ];
 var EXTRAS=[
- {id:"x-pelotero-chico",n:"Pelotero de madera chico",p:60000},{id:"x-subeybaja",n:"Sube y baja",p:30000},{id:"x-sillon",n:"Sillón doble Gervasoni blanco",p:20000},
- {id:"x-tipi",n:"Carpa tipi",p:15000},{id:"x-colchonetas",n:"2 colchonetas para carpa",p:15000}
+ {id:"x-pelotero-chico",n:"Pelotero de madera chico"},{id:"x-subeybaja",n:"Sube y baja"},{id:"x-sillon",n:"Sillón doble Gervasoni blanco"},
+ {id:"x-tipi",n:"Carpa tipi"},{id:"x-colchonetas",n:"2 colchonetas para carpa"}
 ];
-var NAME={}; ITEMS.forEach(function(i){NAME[i.id]=i.n}); EXTRAS.forEach(function(i){NAME[i.id]=i.n});
-var picked=[], current="plazas", ballNote="";
+var FEATURED=["bosque","calesita","selva","superpelotero","mercaditos","plaza-pelotero","osos","heladeria"];
+var BYID={}; 
+var NAME={}; ITEMS.forEach(function(i){NAME[i.id]=i.n;BYID[i.id]=i}); EXTRAS.forEach(function(i){NAME[i.id]=i.n});
+var picked=[], current="destacadas", ballNote="", pitTouched=false;
 
 function isPicked(id){return picked.indexOf(id)>-1}
 function toggle(id){var k=picked.indexOf(id); if(k>-1)picked.splice(k,1); else picked.push(id); sync()}
 function sync(){
   $$("[data-pick]").forEach(function(b){var on=isPicked(b.dataset.pick); b.setAttribute("aria-pressed",on); b.textContent=on?"✓ Sumado":(b.dataset.short?"Sumar":"Sumar a mi consulta")});
   var sel=$("#sel"); sel.hidden=!picked.length;
-  sel.innerHTML="<b>"+picked.length+"</b> "+(picked.length===1?"propuesta elegida":"propuestas elegidas");
-  $("#bar-btn").textContent=picked.length?"Consultar lo elegido":"Consultar por WhatsApp";
+  sel.innerHTML="<b>"+picked.length+"</b> "+(picked.length===1?"elegida":"elegidas")+" · ver";
+  $("#bar-btn").textContent=picked.length?"Pedir presupuesto":"Consultar por WhatsApp";
+  if($("#tray").open)renderTray();
+}
+function hints(){
+  var h=[],sec=0,mob=0,game=0;
+  picked.forEach(function(id){var i=BYID[id]; if(!i)return; if(i.c==="sectores")sec++; if(i.c==="mobiliario")mob++; if(i.c!=="mobiliario"&&i.c!=="adicionales")game++});
+  if(sec%2===1)h.push("Los sectores de juego se alquilan de a 2. Podés sumar otro, como mercaditos, heladería o calesita.");
+  if(mob&&!game)h.push("El mobiliario se suma a una plaza o sector de juego: no se alquila solo.");
+  if(isPicked("calesita"))h.push("La calesita se instala solo en planta baja o con acceso por rampa.");
+  return h;
+}
+function renderTray(){
+  if(!picked.length){$("#tray").close();return}
+  $("#t-body").innerHTML='<ul class="tray-list">'+picked.map(function(id){var i=BYID[id];
+    return '<li>'+(i?'<img src="assets/img/'+(i.th||i.img)[0]+'.webp" alt="">':'<img src="assets/img/logo.webp" alt="">')+'<span>'+NAME[id]+(i&&i.age?'<small>'+i.age+'</small>':'')+'</span><button data-pick-rm="'+id+'" aria-label="Quitar '+esc(NAME[id])+'">×</button></li>'}).join("")+'</ul>'+
+    hints().map(function(t){return '<p class="warn">'+t+'</p>'}).join("")+
+    '<p class="micro">Te pasamos el presupuesto de todo junto por WhatsApp.</p>';
 }
 function renderTabs(){
   $("#tabs").innerHTML=CATS.map(function(c){return '<button role="tab" id="tab-'+c.id+'" aria-selected="'+(c.id===current)+'" data-tab="'+c.id+'">'+c.name+'</button>'}).join("");
 }
 function renderCat(){
   var c=CATS.filter(function(x){return x.id===current})[0];
-  $("#pack").innerHTML='<div class="pack"><b>'+c.pack.t+'</b>'+(c.pack.p?'<span class="price">'+money(c.pack.p)+'</span>':'')+'<p>'+c.pack.d+'</p></div>';
-  $("#grid").innerHTML=ITEMS.filter(function(i){return i.c===current}).map(function(i){
+  var list=current==="destacadas"?FEATURED.map(function(id){return BYID[id]}):ITEMS.filter(function(i){return i.c===current});
+  $("#pack").innerHTML='<div class="pack"><b>'+c.pack.t+'</b><p>'+c.pack.d+'</p></div>';
+  if(window.Motion&&!reduce){try{Motion.animate("#pack .pack",{opacity:[0,1],x:[-18,0]},{duration:.35})}catch(e){}}
+  $("#grid").innerHTML=list.map(function(i){
+    var im=i.th||i.img, many=im.length>1;
     return '<article class="card">'+(i.age?'<span class="badge">'+i.age+'</span>':'')+
-     '<button class="ph" data-open="'+i.id+'" aria-label="Ver qué incluye '+esc(i.n)+'"><img src="assets/img/'+i.img[0]+'.webp" alt="'+esc(i.n)+'" loading="lazy"></button>'+
-     '<div class="bd"><h3>'+i.n+'</h3>'+(i.price?'<span class="meta">'+i.price+'</span>':'<span class="meta">≈ 6 chicos jugando a la vez</span>')+'<p>'+i.d+'</p>'+
+     '<div class="phw"><div class="ph" data-open="'+i.id+'" role="button" tabindex="0" aria-label="Ver qué incluye '+esc(i.n)+'">'+
+       im.map(function(src,k){return '<img src="assets/img/'+src+'.webp" alt="'+esc(i.n)+(k?' (foto '+(k+1)+')':'')+'" loading="lazy">'}).join("")+'</div>'+
+       (many?'<div class="dots" aria-hidden="true">'+im.map(function(_,k){return '<i'+(k?'':' class="on"')+'></i>'}).join("")+'</div><button class="arr" data-next aria-label="Siguiente foto">›</button>':'')+'</div>'+
+     '<div class="bd"><h3>'+i.n+'</h3><span class="meta">'+(i.cap||(i.c==="adicionales"?"Adicional":"≈ 6 chicos jugando a la vez"))+'</span><p>'+i.d+'</p>'+
      '<div class="row"><button class="pick" data-pick="'+i.id+'"></button><button class="more" data-open="'+i.id+'">Qué incluye</button></div></div></article>'}).join("");
   var ex=$("#extras"); ex.hidden=current!=="adicionales";
-  ex.innerHTML=EXTRAS.map(function(e){return '<div class="extra"><span>'+e.n+'</span><b>'+money(e.p)+'</b><button class="pick" data-short="1" data-pick="'+e.id+'"></button></div>'}).join("");
+  ex.innerHTML=EXTRAS.map(function(e){return '<div class="extra"><span>'+e.n+'</span><button class="pick" data-short="1" data-pick="'+e.id+'"></button></div>'}).join("");
   sync();
   if(window.Motion&&!reduce){try{Motion.animate("#grid .card",{opacity:[0,1],y:[18,0]},{duration:.45,delay:Motion.stagger(.05)})}catch(e){}}
 }
+document.addEventListener("scroll",function(e){var t=e.target; if(!t.classList||!t.classList.contains("ph"))return;
+  var k=Math.round(t.scrollLeft/t.clientWidth); $$(".dots i",t.parentNode).forEach(function(d,n){d.classList.toggle("on",n===k)})},true);
+function show(d){if(!d.open)d.showModal(); if(window.Motion&&!reduce){try{Motion.animate(d,{opacity:[0,1],scale:[.94,1],y:[24,0]},{duration:.32,ease:[.2,.9,.3,1.15]})}catch(e){}}}
+function pop(el){if(el&&window.Motion&&!reduce){try{Motion.animate(el,{scale:[1,1.14,1]},{duration:.35})}catch(e){}}}
 var openId=null;
 function openDetail(id){
   var i=ITEMS.filter(function(x){return x.id===id})[0]; if(!i)return; openId=id;
   $("#d-title").textContent=i.n;
   $("#d-body").innerHTML='<div class="gal'+(i.full?' full':'')+'">'+i.img.map(function(s){return '<img src="assets/img/'+s+'.webp" alt="'+esc(i.n)+'">'}).join("")+'</div>'+
     '<p>'+i.d+(i.age?' <b>'+i.age+'.</b>':'')+'</p>'+(i.warn?'<p class="warn">'+i.warn+'</p>':'')+
+    (i.id==="superpelotero"?'<p><a href="#pelotero" data-close-link>Probá los colores y la funda en el pelotero interactivo</a></p>':'')+
     '<div><p class="eyebrow" style="margin-bottom:8px">¿Qué incluye?</p><ul class="incl">'+i.inc.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul></div>';
-  var p=$("#d-pick"); p.dataset.pick=id; sync(); $("#detail").showModal(); $("#d-body").scrollTop=0;
+  var p=$("#d-pick"); p.dataset.pick=id; sync(); show($("#detail")); $("#d-body").scrollTop=0;
 }
 
 /* ---------- Calculadora de chicos ---------- */
@@ -592,56 +654,53 @@ function calc(){
   quiz.kidsHint=n;
 }
 
-/* ---------- Prefiltro de WhatsApp ---------- */
-var quiz={step:0,a:{evento:"",fecha:"",sinFecha:false,horario:"",chicos:"",edades:[],zona:"",lugar:"",techado:"",nombre:""},kidsHint:10};
-var STEPS=[
- {t:"¿Qué vas a festejar?",s:"Así sabemos cómo acompañarte.",k:"evento",o:["Cumpleaños","Bautismo o comunión","Baby shower","Navidad o fin de año","Evento familiar","Otro"]},
- {t:"¿Cuándo es?",s:"Con la fecha revisamos la disponibilidad."},
- {t:"¿Cuántos chicos van a jugar?",s:"Cada propuesta es para unos 6 chicos a la vez."},
- {t:"¿Dónde lo hacés?",s:"El traslado se cotiza según la ubicación."},
- {t:"¿Qué te gustaría?",s:"Elegí lo que te guste. Si no estás segura, te asesoramos."}
-];
+/* ---------- Prefiltro de WhatsApp (3 pasos) ---------- */
+var quiz={step:0,a:{evento:"",fecha:"",sinFecha:false,chicos:"",edades:[],zona:"",techado:"",nombre:""},kidsHint:10};
 function chips(key,opts,multi){
   return '<div class="opts">'+opts.map(function(o){var on=multi?quiz.a[key].indexOf(o)>-1:quiz.a[key]===o;
     return '<button type="button" class="opt" data-k="'+key+'" data-v="'+esc(o)+'"'+(multi?' data-m="1"':'')+' aria-pressed="'+on+'">'+o+'</button>'}).join("")+'</div>';
 }
+function hasSP(){return picked.some(function(id){return id==="superpelotero"||id.indexOf("sp-")===0})}
 function message(){
   var a=quiz.a,L=["¡Hola La Feria! 👋 Quiero consultar por el alquiler de juegos.",""];
   if(a.nombre)L.push("👤 Soy "+a.nombre);
   L.push("🎉 Evento: "+(a.evento||"A definir"));
   var f="A definir"; if(a.fecha&&!a.sinFecha){var p=a.fecha.split("-");f=p[2]+"/"+p[1]+"/"+p[0]}
-  L.push("📅 Fecha: "+f+(a.horario?" · "+a.horario:""));
+  L.push("📅 Fecha: "+f);
   L.push("🧒 Chicos: "+(a.chicos||"A definir")+(a.edades.length?" · Edades: "+a.edades.join(", "):""));
-  L.push("📍 Zona: "+(a.zona||"A definir")+(a.lugar?" · "+a.lugar:""));
+  L.push("📍 Zona: "+(a.zona||"A definir"));
   if(a.techado)L.push("☔ Espacio techado: "+a.techado);
   L.push("");
   if(picked.length){L.push("🎠 Me interesa:");picked.forEach(function(id){L.push("• "+NAME[id])})}
   else L.push("🎠 Todavía no elegí propuesta, me gustaría que me asesoren.");
-  if(ballNote&&(isPicked("superpelotero")||isPicked("plaza-pelotero")))L.push("⚪ Pelotas: "+ballNote);
+  if(pitTouched&&hasSP())L.push("⚪ Pelotero: funda "+funda.toLowerCase()+" · pelotas "+ballNote);
+  else if(pitTouched&&isPicked("plaza-pelotero"))L.push("⚪ Pelotas: "+ballNote);
   L.push("","¿Me confirman disponibilidad y presupuesto? ¡Gracias!");
   return L.join("\n");
 }
+function refreshMsg(){var m=message(),p=$("#q-preview"),l=$("#q-send"); if(p)p.textContent=m; if(l)l.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m)}
 function renderQuiz(){
-  var s=quiz.step,a=quiz.a,h="",total=STEPS.length+1;
+  var s=quiz.step,a=quiz.a,h="",total=3;
   $("#q-prog").style.width=((s+1)/total*100)+"%"; $("#q-count").textContent="Paso "+(s+1)+" de "+total;
   $("#q-back").style.visibility=s?"visible":"hidden";
-  if(s<STEPS.length){var st=STEPS[s]; h='<div class="q"><h4 id="q-title">'+st.t+'</h4><p>'+st.s+'</p>';
-    if(s===0)h+=chips("evento",st.o);
-    if(s===1){var today=new Date().toISOString().slice(0,10);
-      h+='<div class="fld"><label for="q-fecha">Fecha del evento</label><input type="date" id="q-fecha" min="'+today+'" value="'+a.fecha+'"></div>'+
-         '<div class="opts" style="margin-top:10px"><button type="button" class="opt" id="q-sinfecha" aria-pressed="'+a.sinFecha+'">Todavía no la definí</button></div>'+
-         '<div class="fld"><span class="lb">Horario aproximado</span>'+chips("horario",["Mañana","Mediodía","Tarde","Noche"])+'</div>'}
-    if(s===2){h+=chips("chicos",["Hasta 6","7 a 12","13 a 18","Más de 18"])+'<div class="fld"><span class="lb">¿Qué edades tienen? Podés marcar varias</span>'+chips("edades",["Menos de 1 año","1 a 2 años","3 a 4 años","5 años o más"],true)+'</div>'}
-    if(s===3){h+='<div class="fld"><label for="q-zona">Barrio o zona</label><input type="text" id="q-zona" placeholder="Ej.: Los Troncos, Rumencó, Camet, Sierra de los Padres" value="'+esc(a.zona)+'" autocomplete="off"></div>'+
-         '<div class="fld"><span class="lb">Tipo de lugar</span>'+chips("lugar",["Casa con jardín","Quincho","Departamento o SUM","Salón","Parque o aire libre"])+'</div>'+
-         '<div class="fld"><span class="lb">¿Tenés un espacio techado por si llueve?</span>'+chips("techado",["Sí","No","No estoy segura"])+'</div>'}
-    if(s===4){h+='<div class="opts">'+ITEMS.filter(function(i){return i.c!=="adicionales"}).map(function(i){return '<button type="button" class="opt" data-qp="'+i.id+'" aria-pressed="'+isPicked(i.id)+'">'+i.n+'</button>'}).join("")+'</div>'+
-         '<div class="fld"><label for="q-nombre">Tu nombre</label><input type="text" id="q-nombre" placeholder="¿Cómo te llamás?" value="'+esc(a.nombre)+'" autocomplete="given-name"></div>'}
-    h+='</div>';
-    $("#q-next-wrap").innerHTML='<button class="btn btn-blue btn-sm" id="q-next">'+(s===STEPS.length-1?"Ver mi mensaje":"Siguiente")+'</button>';
+  if(s===0){var today=new Date().toISOString().slice(0,10);
+    h='<div class="q"><h4 id="q-title">¿Qué festejás y cuándo?</h4><p>Con la fecha revisamos la disponibilidad.</p>'+
+      chips("evento",["Cumpleaños","Bautismo o comunión","Baby shower","Navidad o fin de año","Evento familiar","Otro"])+
+      '<div class="fld"><label for="q-fecha">Fecha del evento</label><input type="date" id="q-fecha" min="'+today+'" value="'+a.fecha+'"></div>'+
+      '<div class="opts" style="margin-top:10px"><button type="button" class="opt" id="q-sinfecha" aria-pressed="'+a.sinFecha+'">Todavía no la definí</button></div></div>';
+    $("#q-next-wrap").innerHTML='<button class="btn btn-blue btn-sm" id="q-next">Siguiente</button>';
+  }else if(s===1){
+    h='<div class="q"><h4 id="q-title">¿Cuántos chicos y dónde?</h4><p>Cada propuesta es para unos 6 chicos a la vez. El traslado depende de la zona.</p>'+
+      chips("chicos",["Hasta 6","7 a 12","13 a 18","Más de 18"])+
+      '<div class="fld"><span class="lb">Edades (podés marcar varias)</span>'+chips("edades",["Menos de 1 año","1 a 2 años","3 a 4 años","5 años o más"],true)+'</div>'+
+      '<div class="fld"><label for="q-zona">Barrio o zona del evento</label><input type="text" id="q-zona" placeholder="Ej.: Los Troncos, Rumencó, Camet" value="'+esc(a.zona)+'" autocomplete="off"></div>'+
+      '<div class="fld"><span class="lb">¿Hay un espacio techado por si llueve?</span>'+chips("techado",["Sí","No","No estoy segura"])+'</div></div>';
+    $("#q-next-wrap").innerHTML='<button class="btn btn-blue btn-sm" id="q-next">Ver mi mensaje</button>';
   }else{
     var m=message();
-    h='<div class="q"><h4 id="q-title">¡Listo! Este es tu mensaje</h4><p>Se abre WhatsApp con el mensaje ya escrito. Solo tenés que tocar enviar.</p><div class="preview">'+esc(m)+'</div></div>';
+    h='<div class="q"><h4 id="q-title">¡Listo! Este es tu mensaje</h4><p>Se abre WhatsApp con todo escrito. Solo tenés que tocar enviar.</p>'+
+      '<div class="fld" style="margin:0 0 14px"><label for="q-nombre">Tu nombre (opcional)</label><input type="text" id="q-nombre" placeholder="¿Cómo te llamás?" value="'+esc(a.nombre)+'" autocomplete="given-name"></div>'+
+      '<div class="preview" id="q-preview">'+esc(m)+'</div></div>';
     $("#q-next-wrap").innerHTML='<a class="btn btn-wa btn-sm" id="q-send" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(m)+'">Abrir WhatsApp</a>';
   }
   var b=$("#q-body"); b.innerHTML=h; b.scrollTop=0;
@@ -650,45 +709,55 @@ function renderQuiz(){
 function saveInputs(){var f=$("#q-fecha"),z=$("#q-zona"),n=$("#q-nombre"); if(f){quiz.a.fecha=f.value; if(f.value)quiz.a.sinFecha=false} if(z)quiz.a.zona=z.value.trim(); if(n)quiz.a.nombre=n.value.trim()}
 function openQuiz(){
   if(!quiz.a.chicos&&quiz.touchedKids){var n=quiz.kidsHint; quiz.a.chicos=n<=6?"Hasta 6":n<=12?"7 a 12":n<=18?"13 a 18":"Más de 18"}
-  quiz.step=0; renderQuiz(); var d=$("#detail"); if(d.open)d.close(); $("#quiz").showModal();
+  quiz.step=0; renderQuiz(); $$("dialog").forEach(function(d){if(d.open&&d.id!=="quiz")d.close()}); show($("#quiz"));
 }
+$("#q-body").addEventListener("input",function(e){if(e.target.id==="q-nombre"){quiz.a.nombre=e.target.value.trim();refreshMsg()}
+  if(e.target.id==="q-fecha"&&e.target.value){quiz.a.sinFecha=false;$("#q-sinfecha").setAttribute("aria-pressed",false)}});
 
 /* ---------- Eventos ---------- */
 document.addEventListener("click",function(e){
-  var t=e.target.closest("button,a"); if(!t)return;
+  var t=e.target.closest("button,a,[data-open]"); if(!t)return;
   if(t.dataset.tab){current=t.dataset.tab; renderTabs(); renderCat(); return}
-  if(t.dataset.pick){toggle(t.dataset.pick); return}
+  if("next" in t.dataset){var ph=$(".ph",t.parentNode),n=ph.children.length,k=Math.round(ph.scrollLeft/ph.clientWidth); ph.scrollTo({left:((k+1)%n)*ph.clientWidth,behavior:reduce?"auto":"smooth"}); return}
+  if(t.dataset.pick){toggle(t.dataset.pick); pop(t); pop($("#sel")); return}
+  if(t.dataset.pickRm){toggle(t.dataset.pickRm); return}
   if(t.dataset.open){openDetail(t.dataset.open); return}
+  if(t.id==="sel"){renderTray(); show($("#tray")); return}
   if("quiz" in t.dataset){openQuiz(); return}
   if("close" in t.dataset){t.closest("dialog").close(); return}
+  if("closeLink" in t.dataset){t.closest("dialog").close(); return}
   if(t.id==="d-ask"){if(openId&&!isPicked(openId))toggle(openId); openQuiz(); return}
-  if(t.dataset.k){var k=t.dataset.k,v=t.dataset.v; saveInputs();
-    if(t.dataset.m){var arr=quiz.a[k],x=arr.indexOf(v); if(x>-1)arr.splice(x,1); else arr.push(v)} else quiz.a[k]=quiz.a[k]===v?"":v;
-    $$('.opt[data-k="'+k+'"]').forEach(function(b){b.setAttribute("aria-pressed",t.dataset.m?quiz.a[k].indexOf(b.dataset.v)>-1:quiz.a[k]===b.dataset.v)});
-    if(quiz.step===0&&quiz.a.evento){setTimeout(function(){if(quiz.step===0){quiz.step=1;renderQuiz()}},220)}
+  if(t.dataset.funda){funda=t.dataset.funda; pitTouched=true; renderFundas(); return}
+  if(t.dataset.k){var k2=t.dataset.k,v=t.dataset.v; saveInputs();
+    if(t.dataset.m){var arr=quiz.a[k2],x=arr.indexOf(v); if(x>-1)arr.splice(x,1); else arr.push(v)} else quiz.a[k2]=quiz.a[k2]===v?"":v;
+    $$('.opt[data-k="'+k2+'"]').forEach(function(b){b.setAttribute("aria-pressed",t.dataset.m?quiz.a[k2].indexOf(b.dataset.v)>-1:quiz.a[k2]===b.dataset.v)});
     return}
-  if(t.dataset.qp){toggle(t.dataset.qp); t.setAttribute("aria-pressed",isPicked(t.dataset.qp)); return}
   if(t.id==="q-sinfecha"){quiz.a.sinFecha=!quiz.a.sinFecha; if(quiz.a.sinFecha){quiz.a.fecha="";$("#q-fecha").value=""} t.setAttribute("aria-pressed",quiz.a.sinFecha); return}
   if(t.id==="q-next"){saveInputs(); quiz.step++; renderQuiz(); return}
   if(t.id==="q-back"){saveInputs(); if(quiz.step>0){quiz.step--; renderQuiz()} return}
-  if(t.id==="pit-add"){if(!isPicked("superpelotero"))toggle("superpelotero"); t.textContent="✓ Sumado a tu consulta"; return}
+  if(t.id==="pit-add"){pitTouched=true; if(!isPicked("superpelotero"))toggle("superpelotero"); t.textContent="✓ Sumado a tu consulta"; return}
 });
+document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("ph")){e.preventDefault();openDetail(e.target.dataset.open)}});
 $$("dialog").forEach(function(d){d.addEventListener("click",function(e){if(e.target===d)d.close()})});
 $("#kids-range").addEventListener("input",function(){quiz.touchedKids=true;calc()});
 
 /* ---------- Pelotero ---------- */
 var COLORS=[["Rosa pastel","#f6c9dc"],["Celeste","#cfe0f5"],["Verde agua","#9fd8cf"],["Gris","#b9bcc0"],["Amarillo","#ffd84d"],["Ocre","#f2b04c"],["Rojo","#f0524b"],["Fucsia","#ff5cc0"],["Verde","#3ea66b"],["Azul","#1f57c3"],["Negro","#2a2a2a"]];
 var chosen=["Rosa pastel","Celeste"];
+var FUNDAS=[["Rayada gris y blanca","repeating-linear-gradient(90deg,#cfd4d8 0 16px,#fff 16px 32px)"],["Blanca lisa","linear-gradient(#fbfbf9,#eeeeea)"],["Símil tronco","repeating-linear-gradient(91deg,#a98666 0 9px,#c2a383 9px 15px,#8f6e52 15px 19px,#b79675 19px 31px)"]];
+var funda=FUNDAS[0][0];
+function renderFundas(){$("#fundas").innerHTML=FUNDAS.map(function(f){return '<button type="button" class="opt" data-funda="'+f[0]+'" aria-pressed="'+(f[0]===funda)+'">'+f[0]+'</button>'}).join("");
+  var f=FUNDAS.filter(function(x){return x[0]===funda})[0]; $("#pit-box").style.setProperty("--funda",f[1]); var b=$("#pit-add"); if(b)b.textContent="Sumar este pelotero a mi consulta"}
 var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var cv=$("#pit"),cx=cv.getContext("2d"),balls=[],W=0,H=0,R=18,ptr={x:-999,y:-999,on:false},running=false;
 function palette(){var p=["#ffffff"]; COLORS.forEach(function(c){if(chosen.indexOf(c[0])>-1)p.push(c[1])}); return p}
 function recolor(){var p=palette(); balls.forEach(function(b,i){b.c=i%2===0?p[0]:p[1+((i>>1)%Math.max(1,p.length-1))]||p[0]});
-  ballNote="blancas"+(chosen.length?" + "+chosen.join(", ").toLowerCase():""); $("#pit-add").textContent="Sumar pelotero con estos colores"}
+  ballNote="blancas"+(chosen.length?" + "+chosen.join(", ").toLowerCase():""); $("#pit-add").textContent="Sumar este pelotero a mi consulta"}
 function renderSw(){$("#swatches").innerHTML=COLORS.map(function(c){return '<button class="sw" style="--c:'+c[1]+'" data-sw="'+c[0]+'" aria-pressed="'+(chosen.indexOf(c[0])>-1)+'"><i></i>'+c[0]+'</button>'}).join("")}
 $("#swatches").addEventListener("click",function(e){var b=e.target.closest("[data-sw]"); if(!b)return; var n=b.dataset.sw,k=chosen.indexOf(n);
-  if(k>-1)chosen.splice(k,1); else{if(chosen.length>=3)chosen.shift(); chosen.push(n)} renderSw(); recolor(); balls.forEach(function(b){b.vy-=3+Math.random()*4}); if(reduce)draw()});
+  pitTouched=true; if(k>-1)chosen.splice(k,1); else{if(chosen.length>=3)chosen.shift(); chosen.push(n)} renderSw(); recolor(); balls.forEach(function(b){b.vy-=3+Math.random()*4}); if(reduce)draw()});
 function size(){var r=cv.getBoundingClientRect(),d=Math.min(2,window.devicePixelRatio||1); W=r.width;H=r.height; cv.width=W*d; cv.height=H*d; cx.setTransform(d,0,0,d,0,0); R=W<420?14:18;
-  var n=Math.round(W*H*.5/(Math.PI*R*R)); balls=[]; for(var i=0;i<n;i++)balls.push({x:R+Math.random()*(W-2*R),y:H-R-Math.random()*H*.9,vx:0,vy:0,c:"#fff"}); recolor()}
+  var n=Math.round(W*H*.62/(Math.PI*R*R)); balls=[]; for(var i=0;i<n;i++)balls.push({x:R+Math.random()*(W-2*R),y:H-R-Math.random()*H*.9,vx:0,vy:0,c:"#fff"}); recolor()}
 function step(){
   for(var i=0;i<balls.length;i++){var b=balls[i]; b.vy+=.35; b.vx*=.985; b.vy*=.985;
     if(ptr.on){var dx=b.x-ptr.x,dy=b.y-ptr.y,d2=dx*dx+dy*dy; if(d2<4900&&d2>1){var d=Math.sqrt(d2),f=(70-d)/70*1.6; b.vx+=dx/d*f; b.vy+=dy/d*f}}
@@ -709,15 +778,23 @@ var rt; window.addEventListener("resize",function(){clearTimeout(rt); rt=setTime
 function startPit(){size(); settle(); if(reduce)return;
   if("IntersectionObserver" in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!running){running=true;balls.forEach(function(b){b.vy-=4+Math.random()*7;b.vx+=Math.random()*4-2});loop()} else if(!v)running=false},{threshold:.05}).observe(cv)} else{running=true;loop()}}
 
-function barVis(){$("#bar").classList.toggle("off",window.scrollY<420)}
+var finalIn=false; function barVis(){$("#bar").classList.toggle("off",window.scrollY<420||finalIn)}
+if("IntersectionObserver" in window){new IntersectionObserver(function(en){finalIn=en[0].isIntersecting;barVis()},{threshold:.35}).observe($(".final"))}
 window.addEventListener("scroll",barVis,{passive:true}); barVis();
 /* ---------- Inicio ---------- */
-renderTabs(); renderCat(); calc(); renderSw(); startPit();
+renderTabs(); renderCat(); calc(); renderSw(); renderFundas(); startPit();
 if(window.Motion&&!reduce){try{
   var M=Motion;
   M.animate(".hero-copy > *",{opacity:[0,1],y:[22,0]},{duration:.6,delay:M.stagger(.08),ease:"easeOut"});
   M.animate(".collage figure",{opacity:[0,1],scale:[.85,1]},{duration:.7,delay:M.stagger(.14,{startDelay:.2}),ease:[.2,.9,.3,1.2]});
   $$("[data-reveal]").forEach(function(el){var r=el.getBoundingClientRect(); if(r.top>window.innerHeight){M.inView(el,function(){M.animate(el,{opacity:[.35,1],y:[26,0]},{duration:.55,ease:"easeOut"})},{amount:.2})}});
+  $$(".sec-head,.calc,.assure,.pit-box,.about-copy > *,.final .wrap > *").forEach(function(el){var r=el.getBoundingClientRect(); if(r.top>window.innerHeight){M.inView(el,function(){M.animate(el,{opacity:[.3,1],y:[30,0]},{duration:.6,ease:"easeOut"})},{amount:.15})}});
+  M.inView(".duo",function(){M.animate(".duo .disc",{scale:[.6,1],rotate:[-20,0]},{duration:.8,ease:[.2,.9,.3,1.2]}); M.animate(".duo img",{opacity:[.3,1],y:[40,0]},{duration:.7,delay:.1}); M.animate(".duo .hand",{opacity:[0,1],scale:[.4,1]},{duration:.45,delay:M.stagger(.18,{startDelay:.6})})},{amount:.3});
+  M.inView(".faq-list",function(){M.animate(".faq details",{opacity:[.3,1],x:[-24,0]},{duration:.4,delay:M.stagger(.05)})},{amount:.1});
+  M.inView(".split",function(info){M.animate(info.target?info.target.firstChild:".split i:first-child",{scaleX:[0,1]},{duration:.7,ease:"easeOut"})},{amount:1});
+  M.scroll(M.animate("#progress",{scaleX:[0,1]},{ease:"linear"}));
+  M.scroll(M.animate(".awning",{backgroundPositionX:["0px","-120px"]},{ease:"linear"}),{target:$(".hero")});
+  M.scroll(M.animate(".final",{backgroundPositionX:["0px","120px"]},{ease:"linear"}),{target:$(".final"),offset:["start end","end end"]});
   M.scroll(M.animate(".collage .a",{y:[0,-40]},{ease:"linear"}),{target:$(".hero")});
   M.scroll(M.animate(".collage .b",{y:[0,30]},{ease:"linear"}),{target:$(".hero")});
 }catch(e){}}
