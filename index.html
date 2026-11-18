@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Feria Mar del Plata</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Alquiler de plazas de juego, peloteros, calesita y rincones de madera para cumpleaños infantiles en Mar del Plata. Los llevamos, los armamos y los retiramos.">
+<meta property="og:title" content="La Feria · Alquiler de juegos infantiles en Mar del Plata">
+<meta property="og:description" content="El cumple vuelve a casa. Plazas de juego, peloteros y rincones de madera para chicos de hasta 4 años.">
+<meta property="og:image" content="assets/img/bosque-1.webp">
+<meta name="theme-color" content="#cfe6ee">
+<link rel="icon" href="assets/img/logo-180.png">
+<link rel="apple-touch-icon" href="assets/img/logo-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Rubik:wght@400;500;600&display=swap">
+<style>
+/* Layout: toldo de feria. Franjas verticales celestes, bordes festoneados tipo nube y fotos en marcos de sello,
+   con el verde de WhatsApp reservado solo para la acción principal. */
+:root{
+  --cream:#fffaf4; --paper:#f7f3ee; --sky:#cfe6ee; --sky-soft:#e6f1f4; --blue:#7cacc8; --blue-deep:#2c6a92;
+  --ink:#2f4654; --ink-soft:#5d7380; --tan:#e2bfa3; --tan-deep:#b98a66; --rose:#dccfcb; --line:#d9e5ea;
+  --wa:#25d366; --wa-ink:#0b3d22; --white:#ffffff;
+  --display:"Fredoka","Rubik",system-ui,sans-serif; --body:"Rubik",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
+  --r:22px; --shadow:0 10px 30px -14px rgba(44,106,146,.35);
+  --gl:max(16px, env(safe-area-inset-left, 0px)); --gr:max(16px, env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--cream)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);color:var(--blue-deep);line-height:1.08;margin:0;text-wrap:balance;font-weight:600}
+h1{font-size:clamp(2.6rem,7.2vw,5rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,4.4vw,3rem)}
+h3{font-size:1.3rem}
+p{margin:0}
+a{color:var(--blue-deep)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue-deep);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--tan-deep)}
+.lead{font-size:1.15rem;color:var(--ink-soft);max-width:58ch}
+.hand{font-family:var(--hand);font-size:1.6rem;color:var(--blue);line-height:1}
+.sec{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;gap:14px;margin-bottom:36px;max-width:720px}
+.stripes{background:repeating-linear-gradient(90deg,var(--sky) 0 30px,var(--cream) 30px 60px)}
+.scallop{height:26px;background:radial-gradient(circle at 22px 0,var(--c,var(--sky)) 21px,transparent 22px) repeat-x;background-size:44px 26px}
+.scallop.up{transform:scaleY(-1)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 26px;border-radius:999px;border:0;font-family:var(--display);font-weight:600;font-size:1.08rem;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 12px 26px -12px rgba(37,211,102,.9)}
+.btn-ghost{background:var(--white);color:var(--blue-deep);box-shadow:inset 0 0 0 2px var(--sky)}
+.btn-blue{background:var(--blue-deep);color:var(--white)}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-sm{min-height:44px;padding:8px 18px;font-size:.98rem}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,250,244,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--blue-deep)}
+.brand img{width:46px;height:46px;border-radius:50%}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.nav{display:flex;gap:22px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--ink);font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--blue-deep)}
+@media (max-width:860px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* hero */
+.awning{height:54px}
+.hero{background:linear-gradient(var(--sky-soft),var(--cream) 70%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,80px)}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero h1 em{font-style:normal;color:var(--tan-deep);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.28em}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.micro{font-size:.92rem;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.chips li{display:flex;align-items:center;gap:8px;background:var(--white);border-radius:999px;padding:8px 14px;font-size:.92rem;font-weight:500;box-shadow:inset 0 0 0 1px var(--line)}
+.chips li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--tan)}
+.collage{position:relative;aspect-ratio:1/1.08;max-width:520px;width:100%;margin-inline:auto}
+.collage figure{position:absolute;margin:0;border-radius:28px;overflow:hidden;border:7px solid var(--white);box-shadow:var(--shadow);background:var(--sky)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .a{inset:6% 24% 16% 0;transform:rotate(-3deg)}
+.collage .b{inset:36% 0 0 46%;transform:rotate(4deg)}
+@media (max-width:520px){.collage .tag .hand{display:none}}
+.collage .c{inset:58% 56% 2% 4%;transform:rotate(-7deg)}
+.collage .tag{position:absolute;right:0;top:-3%;transform:rotate(6deg);text-align:center;z-index:2}
+.horse{transform-origin:50% 92%;animation:rock 2.6s ease-in-out infinite}
+@keyframes rock{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.cloud{position:absolute;opacity:.9;animation:drift 26s linear infinite alternate;pointer-events:none}
+@keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(40px)}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.collage{max-width:420px}}
+
+/* contraste casa */
+.home{background:var(--blue-deep);color:var(--white)}
+.home h2{color:var(--white)}
+.home .eyebrow{color:var(--tan)}
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.home-grid h3{color:var(--white);margin-bottom:8px}
+.home-grid p{color:#d6e6ef}
+.home-grid svg{width:44px;height:44px;margin-bottom:14px;color:var(--tan)}
+@media (max-width:760px){.home-grid{grid-template-columns:1fr}}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--white);border-radius:var(--r);padding:clamp(20px,3.4vw,34px);box-shadow:var(--shadow);margin-bottom:44px}
+.calc label{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--blue-deep);display:block;margin-bottom:10px}
+.calc output{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--tan-deep);font-variant-numeric:tabular-nums;line-height:1}
+.calc input[type=range]{width:100%;accent-color:var(--blue-deep);height:34px}
+.calc-res{background:var(--sky-soft);border-radius:18px;padding:18px 20px;display:grid;gap:6px}
+.calc-res strong{font-family:var(--display);font-size:1.25rem;color:var(--blue-deep)}
+.kids{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;min-height:22px}
+.kids i{width:16px;height:16px;border-radius:50%;background:var(--tan);display:block}
+.kids i.b{background:var(--blue)}.kids i.c{background:var(--rose)}.kids i.d{background:#9bcac9}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+
+/* catálogo */
+.cat{background:var(--paper)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:26px;scrollbar-width:thin}
+.tabs button{flex:none;border:0;background:var(--white);border-radius:999px;padding:11px 18px;font-family:var(--display);font-weight:500;font-size:1rem;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);min-height:46px}
+.tabs button[aria-selected=true]{background:var(--blue-deep);color:var(--white);box-shadow:none}
+.pack{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;background:var(--sky);border-radius:18px;padding:16px 20px;margin-bottom:22px}
+.pack b{font-family:var(--display);font-size:1.2rem;color:var(--blue-deep)}
+.pack .price{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--blue-deep);font-variant-numeric:tabular-nums;margin-left:auto}
+.pack p{flex-basis:100%;font-size:.95rem;color:var(--ink-soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--white);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 0 var(--line);position:relative}
+.card .ph{aspect-ratio:4/4.4;overflow:hidden;background:var(--sky);border:0;padding:0;display:block;width:100%}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .ph img{transform:scale(1.05)}
+.badge{position:absolute;top:12px;left:12px;background:var(--cream);color:var(--blue-deep);font-weight:600;font-size:.8rem;padding:5px 11px;border-radius:999px}
+.card .bd{padding:16px 18px 18px;display:grid;gap:8px;flex:1;align-content:start}
+.card .bd p{font-size:.95rem;color:var(--ink-soft)}
+.card .meta{font-size:.84rem;color:var(--tan-deep);font-weight:600}
+.card .row{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.pick{border:0;background:var(--sky-soft);color:var(--blue-deep);border-radius:999px;padding:9px 14px;font-weight:600;font-size:.92rem;min-height:44px;flex:1}
+.pick[aria-pressed=true]{background:var(--blue-deep);color:var(--white)}
+.more{border:0;background:none;color:var(--blue-deep);font-weight:600;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;min-height:44px;padding:0 6px}
+.extras{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:22px}
+.extra{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:16px;padding:10px 12px 10px 16px;box-shadow:0 2px 0 var(--line)}
+.extra span{flex:1;font-weight:500;min-width:0}
+.extra b{font-family:var(--display);color:var(--blue-deep);font-variant-numeric:tabular-nums}
+.extra .pick{flex:none;padding:6px 12px;min-height:40px}
+.note{font-size:.9rem;color:var(--ink-soft);margin-top:20px}
+
+/* pelotero */
+.pit{background:var(--sky-soft)}
+.pit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.pit-box{position:relative;border-radius:26px;overflow:hidden;background:var(--white);box-shadow:var(--shadow);border:8px solid var(--white)}
+.pit-box::before{content:"";position:absolute;inset:auto 0 0;height:42%;background:repeating-linear-gradient(90deg,#d9dde0 0 16px,#fff 16px 32px);opacity:.55}
+#pit{display:block;width:100%;height:340px;position:relative;touch-action:pan-y}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.sw{display:flex;align-items:center;gap:8px;border:0;background:var(--white);border-radius:999px;padding:7px 14px 7px 8px;font-size:.92rem;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);min-height:44px}
+.sw i{width:26px;height:26px;border-radius:50%;background:var(--c);box-shadow:inset -3px -4px 6px rgba(0,0,0,.14)}
+.sw[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--blue-deep);background:var(--cream)}
+@media (max-width:860px){.pit-grid{grid-template-columns:1fr}#pit{height:280px}}
+
+/* proceso */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--white);border-radius:var(--r);padding:26px 24px;position:relative;display:grid;gap:8px;align-content:start;box-shadow:0 2px 0 var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:1.3rem;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--blue-deep);margin-bottom:6px}
+.steps li.pay::before{background:var(--tan);color:var(--white)}
+.steps p{color:var(--ink-soft);font-size:.98rem}
+.steps .who{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tan-deep)}
+.split{display:flex;height:16px;border-radius:999px;overflow:hidden;margin-top:6px;font-size:0}
+.split i{flex:1;background:var(--tan)}.split i+i{background:var(--sky)}
+.split.b i{background:var(--sky)}.split.b i+i{background:var(--tan)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}}
+.assure{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;margin-top:30px;background:var(--blue-deep);color:var(--white);border-radius:var(--r);padding:22px 26px}
+.assure p{font-family:var(--display);font-size:1.2rem;max-width:34ch}
+
+/* quiénes somos */
+.about{background:var(--cream);position:relative}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,72px);align-items:center}
+.duo{position:relative;max-width:420px;margin-inline:auto;width:100%}
+.duo .disc{position:absolute;inset:14% 4% 0;border-radius:50% 50% 46% 54%/56% 52% 48% 44%;background:var(--sky)}
+.duo img{position:relative;width:100%}
+.duo .hand{position:absolute;font-size:2rem}
+.duo .n1{left:0;top:30%;transform:rotate(-8deg)}
+.duo .n2{right:0;top:24%;transform:rotate(7deg)}
+.about-copy{display:grid;gap:18px;min-width:0}
+.about-copy p{max-width:60ch}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.pillars div{background:var(--paper);border-radius:18px;padding:16px}
+.pillars b{font-family:var(--display);color:var(--blue-deep);display:block;margin-bottom:4px}
+.pillars span{font-size:.92rem;color:var(--ink-soft)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
+
+/* faq */
+.faq{background:var(--paper)}
+.faq-list{display:grid;gap:10px;max-width:820px}
+.faq details{background:var(--white);border-radius:18px;padding:0 20px;box-shadow:0 2px 0 var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;font-family:var(--display);font-weight:500;font-size:1.1rem;color:var(--blue-deep);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.6rem;color:var(--tan-deep)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 18px;color:var(--ink-soft);max-width:66ch}
+
+/* cierre */
+.final{text-align:center}
+.final .wrap{display:grid;gap:20px;justify-items:center;padding-block:clamp(56px,8vw,96px)}
+.final h2{max-width:18ch}
+.foot{background:var(--sky);padding-block:30px calc(30px + 76px)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;font-size:.95rem}
+.foot b{font-family:var(--display);color:var(--blue-deep);font-size:1.1rem}
+.foot a{font-weight:600}
+@media (min-width:861px){.foot{padding-block:30px}}
+
+/* barra fija */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(255,250,244,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);display:flex;gap:12px;align-items:center;justify-content:center}
+.bar{transition:transform .3s,opacity .3s}.bar.off{transform:translateY(120%);opacity:0;pointer-events:none}
+.bar .sel{font-size:.92rem;font-weight:500;min-width:0}
+.bar .sel b{color:var(--blue-deep)}
+.bar .btn{flex:1;max-width:420px}
+@media (min-width:861px){.bar{left:auto;right:max(20px, env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));border:0;background:none;backdrop-filter:none;padding:0}.bar .btn{flex:none;box-shadow:0 16px 34px -12px rgba(37,211,102,.95)}.bar .sel{background:var(--white);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow)}}
+
+/* diálogos */
+dialog{border:0;padding:0;border-radius:26px;background:var(--cream);color:var(--ink);width:min(640px,calc(100vw - 24px));max-height:calc(100dvh - 24px);box-shadow:0 30px 80px -20px rgba(20,50,70,.6)}
+dialog::backdrop{background:rgba(30,60,80,.55);backdrop-filter:blur(3px)}
+.dlg{display:flex;flex-direction:column;max-height:calc(100dvh - 24px)}
+.dlg-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.dlg-head h3{flex:1}
+.x{border:0;background:var(--sky-soft);width:44px;height:44px;border-radius:50%;font-size:1.3rem;line-height:1;color:var(--blue-deep)}
+.dlg-body{padding:20px;overflow-y:auto;display:grid;gap:18px}
+.dlg-foot{padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;gap:10px;justify-content:space-between;align-items:center}
+.prog{height:8px;background:var(--sky-soft);border-radius:99px;overflow:hidden;flex:1}
+.prog i{display:block;height:100%;width:20%;background:var(--tan-deep);border-radius:99px;transition:width .35s}
+.q h4{font-family:var(--display);font-weight:600;font-size:1.45rem;color:var(--blue-deep);margin:0 0 4px}
+.q>p{color:var(--ink-soft);font-size:.95rem;margin-bottom:14px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:0;background:var(--white);border-radius:14px;padding:12px 16px;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);min-height:48px}
+.opt[aria-pressed=true]{background:var(--blue-deep);color:var(--white);box-shadow:none}
+.fld{display:grid;gap:6px;margin-top:14px}
+.fld label,.fld .lb{font-weight:600;font-size:.92rem}
+.fld input{font:inherit;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--white);color:var(--ink);min-height:48px;width:100%}
+.preview{white-space:pre-wrap;background:#e7f8ec;border-radius:16px 16px 4px 16px;padding:14px 16px;font-size:.95rem;line-height:1.5;color:#173a26}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.gal img{border-radius:16px;width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--sky)}
+.gal.full img{aspect-ratio:auto;object-fit:contain}
+.incl{columns:2;column-gap:24px;padding:0;margin:0;list-style:none;font-size:.96rem}
+.incl li{break-inside:avoid;padding:5px 0 5px 20px;position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:13px;width:9px;height:9px;border-radius:50%;background:var(--tan)}
+@media (max-width:520px){.incl{columns:1}}
+.warn{background:var(--sky-soft);border-radius:14px;padding:12px 14px;font-size:.92rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="La Feria, inicio">
+      <img src="assets/img/logo.webp" alt="" width="46" height="46">
+      <span>La Feria<small>Mar del Plata</small></span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#propuestas">Propuestas</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <button class="btn btn-wa btn-sm" data-quiz>Consultar fecha</button>
+  </div>
+</header>
+
+<main id="inicio">
+<div class="stripes awning" aria-hidden="true"></div>
+<section class="hero">
+  <div class="scallop" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Alquiler de juegos infantiles · Mar del Plata</p>
+      <h1>El cumple vuelve <em>a casa<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 Q 28 2 52 12 T 100 12 T 148 12 T 197 9" fill="none" stroke="#e2bfa3" stroke-width="6" stroke-linecap="round"/></svg></em></h1>
+      <p class="lead">Plazas de juego, peloteros, calesita y rincones de madera para chicos de hasta 4 años. Los llevamos, los armamos y los retiramos. Vos solo disfrutás del festejo.</p>
+      <div class="cta-row">
+        <button class="btn btn-wa" data-quiz>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.400 1.300-2 1.400-.5.1-1.200.1-1.900-.1-.4-.1-1-.3-1.700-.6-3-1.300-4.900-4.300-5.100-4.500-.1-.2-1.200-1.600-1.200-3s.8-2.200 1-2.500c.3-.3.600-.3.800-.3h.6c.2 0 .4-.1.7.5l1 2.300c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.800 1.300 1.700 2.100 1.200 1 2.100 1.400 2.400 1.500.3.2.5.1.7-.1l1-1.200c.2-.3.4-.2.7-.1l2.200 1c.3.2.5.200.6.4.1.100.1.600-.1 1.300Z"/></svg>
+          Consultar fecha por WhatsApp
+        </button>
+        <a class="btn btn-ghost" href="#propuestas">Ver propuestas</a>
+      </div>
+      <p class="micro">Respondé 5 preguntas rápidas y te llega la disponibilidad sin idas y vueltas.</p>
+      <ul class="chips">
+        <li>Creado por docentes de nivel inicial</li>
+        <li>Armado y retiro a nuestro cargo</li>
+        <li>4 horas de juego</li>
+        <li>Reservás con el 50 %</li>
+      </ul>
+    </div>
+    <div class="collage">
+      <svg class="cloud" style="left:-8%;top:-4%;width:130px" viewBox="0 0 130 60" aria-hidden="true"><path fill="#fff" d="M20 55a18 18 0 0 1 4-35 26 26 0 0 1 50-6 20 20 0 0 1 36 12 15 15 0 0 1-2 29Z"/></svg>
+      <figure class="a"><img src="assets/img/bosque-1.webp" alt="Casita de juego con cocina de madera de la Plaza Bosque" fetchpriority="high"></figure>
+      <figure class="b"><img src="assets/img/plaza-pelotero-2.webp" alt="Pelotero de madera con pelotas en tonos pastel y carpa tipi"></figure>
+      <figure class="c"><img src="assets/img/calesita-2.webp" alt="Calesita blanca con techo rayado"></figure>
+      <div class="tag">
+        <svg class="horse" width="92" height="80" viewBox="0 0 92 80" aria-hidden="true"><g fill="#e2bfa3"><path d="M62 8c3-5 8-6 9-3 4 2 8 6 9 10 1 3-3 4-6 3l-5-1c-1 6-2 11-5 15 3 6 5 12 6 19l-6 1c-1-6-3-11-6-15-6 2-13 2-19 1-2 5-4 10-8 14l-5-3c3-5 5-10 5-16-4-3-6-7-6-11-4 3-7 7-12 6-3-1-2-5 1-6 5-3 9-8 16-8 8 0 16 1 22-1 4-1 6-3 10-5Z"/><path d="M8 58c20 16 56 16 76 0l4 4c-24 20-60 20-84 0Z"/></g></svg>
+        <div class="hand">¡hecho con amor!</div>
+      </div>
+    </div>
+  </div>
+  <div class="scallop up" style="--c:var(--blue-deep)" aria-hidden="true"></div>
+</section>
+
+<section class="home">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Del salón al jardín</p>
+      <h2>En tu casa, en el quincho o en el parque</h2>
+      <p style="color:#d6e6ef;max-width:60ch">Un festejo a la medida de los más chiquitos, en un lugar que ya conocen. Nosotras convertimos tu espacio en una plaza de juegos y después lo dejamos como estaba.</p>
+    </div>
+    <div class="home-grid">
+      <div data-reveal>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 24 7l18 15M11 19v21h26V19M20 40V28h8v12"/></svg>
+        <h3>Juegan tranquilos</h3>
+        <p>Un espacio conocido, a su escala y sin amontonamientos. Cada propuesta está pensada para que jueguen unos 6 chicos a la vez.</p>
+      </div>
+      <div data-reveal>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 30h26V12H4zM30 18h8l6 7v5H30M12 36a4 4 0 1 0 0-.1M36 36a4 4 0 1 0 0-.1"/></svg>
+        <h3>No cargás nada</h3>
+        <p>Llegamos al lugar, armamos todo y, cuando termina, juntamos y controlamos cada pieza. Vos no movés ni una tabla.</p>
+      </div>
+      <div data-reveal>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/></svg>
+        <h3>Queda lindo en las fotos</h3>
+        <p>Madera, tonos suaves y detalles cuidados. Creemos que la diversión y la estética pueden ir de la mano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="propuestas">
+  <div class="scallop" style="--c:var(--blue-deep)" aria-hidden="true"></div>
+  <div class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Catálogo 2027</p>
+      <h2>Elegí con qué van a jugar</h2>
+      <p class="lead">Tocá “Sumar” en lo que te guste y lo incluimos en tu consulta. Todas las propuestas son por 4 horas.</p>
+    </div>
+
+    <div class="calc">
+      <div>
+        <label for="kids-range">¿Cuántos chicos vienen?</label>
+        <output id="kids-out" for="kids-range">10</output>
+        <input type="range" id="kids-range" min="2" max="30" value="10" step="1">
+        <div class="kids" id="kids-dots" aria-hidden="true"></div>
+      </div>
+      <div class="calc-res" aria-live="polite">
+        <span class="eyebrow">Te sugerimos</span>
+        <strong id="calc-title"></strong>
+        <span id="calc-text"></span>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Categorías del catálogo" id="tabs"></div>
+    <div id="pack"></div>
+    <div class="grid" id="grid"></div>
+    <div class="extras" id="extras" hidden></div>
+    <p class="note">Valores de referencia. El precio queda congelado al abonar la seña. El traslado se cotiza según la ubicación del evento. El alquiler no incluye animación ni coordinación.</p>
+  </div>
+</section>
+
+<section class="pit" id="pelotero">
+  <div class="wrap sec">
+    <div class="pit-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:8px">
+          <p class="eyebrow">Probalo acá</p>
+          <h2>Armá tu pelotero</h2>
+          <p class="lead">Las pelotas blancas se combinan con los tonos que elijas. Tocá hasta 3 colores y mové las pelotas con el dedo o el mouse.</p>
+        </div>
+        <div class="swatches" id="swatches"></div>
+        <button class="btn btn-blue" id="pit-add">Sumar pelotero con estos colores</button>
+      </div>
+      <div class="pit-box"><canvas id="pit" aria-label="Pelotero interactivo con las pelotas en los colores elegidos" role="img"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>De la consulta al festejo en 6 pasos</h2>
+      <p class="lead">Vos elegís y reservás. Del resto nos ocupamos nosotras.</p>
+    </div>
+    <ol class="steps">
+      <li data-reveal><span class="who">Vos</span><h3>Elegís tu propuesta</h3><p>Mirá el catálogo y sumá las plazas, sectores o adicionales que te gusten.</p></li>
+      <li data-reveal><span class="who">Vos</span><h3>Nos escribís por WhatsApp</h3><p>Con la fecha, el lugar y la cantidad de chicos te confirmamos disponibilidad y el valor final con traslado.</p></li>
+      <li data-reveal class="pay"><span class="who">Reserva</span><h3>Señás el 50 %</h3><p>Con la seña quedan confirmados la fecha y el horario, y el precio se congela.</p><div class="split" aria-hidden="true"><i></i><i></i></div></li>
+      <li data-reveal><span class="who">Nosotras</span><h3>Llegamos y armamos todo</h3><p>Esa mañana te escribimos para recordarte el horario. Vamos al lugar y dejamos cada juego listo para usar.</p></li>
+      <li data-reveal class="pay"><span class="who">Entrega</span><h3>Abonás el 50 % restante</h3><p>Al momento de la entrega, por transferencia o en efectivo.</p><div class="split b" aria-hidden="true"><i></i><i></i></div></li>
+      <li data-reveal><span class="who">Nosotras</span><h3>Juegan 4 horas y retiramos</h3><p>Al terminar juntamos todo y controlamos que no falte nada. Si necesitás más tiempo, lo vemos según la agenda del día.</p></li>
+    </ol>
+    <div class="assure">
+      <p>¿Ya tenés fecha? Los fines de semana son los primeros en reservarse.</p>
+      <button class="btn btn-wa" data-quiz>Consultar mi fecha</button>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="quienes-somos">
+  <div class="scallop up" aria-hidden="true"></div>
+  <div class="wrap sec">
+    <div class="about-grid">
+      <div class="duo">
+        <div class="disc" aria-hidden="true"></div>
+        <img src="assets/img/agus-stefi.webp" alt="Agus y Stefi, creadoras de La Feria" loading="lazy" width="900" height="1200">
+        <span class="hand n1">Agus</span>
+        <span class="hand n2">Stefi</span>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">Quiénes somos</p>
+        <h2>Dos amigas, docentes de nivel inicial, detrás de cada armado</h2>
+        <p>Somos Agus y Stefi: amigas, socias, decoradoras de eventos y docentes de nivel inicial. Nos une la pasión por el juego, la creatividad y los detalles.</p>
+        <p>Pasamos nuestros días en la sala, entre chicos de la misma edad que tus invitados. Por eso cada juego de La Feria está elegido con un fundamento y no porque sí. Y por eso somos nosotras las que vamos a tu casa a armarlo.</p>
+        <div class="pillars">
+          <div><b>Juego simbólico</b><span>Mercaditos, heladería, pizzería y cocina para jugar a ser grandes.</span></div>
+          <div><b>Movimiento</b><span>Toboganes, balancines, rampas y tablas de equilibrio a su altura.</span></div>
+          <div><b>Por edades</b><span>Propuestas hasta 2 años y hasta 4 años, para que cada uno juegue seguro.</span></div>
+        </div>
+        <p class="hand" style="font-size:1.9rem">¡Bienvenidos a esta nueva etapa!</p>
+        <div><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/laferiamdq/" target="_blank" rel="noopener">Conocenos en Instagram · @laferiamdq</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Lo que conviene saber antes de reservar</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>¿Para cuántos chicos es cada propuesta?</summary><p>Cada plaza o sector está pensado para que jueguen unos 6 chicos a la vez. Si vienen más, lo ideal es combinar propuestas, por ejemplo una plaza con mercaditos, calesita o súper pelotero, así todos tienen con qué jugar y nadie espera turno.</p></details>
+      <details><summary>¿Para qué edades son los juegos?</summary><p>La mayoría de las plazas son para chicos de hasta 4 años. La Plaza Osos está pensada para los más chiquitos, hasta 2 años. En cada ficha del catálogo vas a ver la edad recomendada.</p></details>
+      <details><summary>¿Cuánto dura el alquiler?</summary><p>4 horas de juego. Si necesitás extenderlo, lo coordinamos según los eventos que tengamos ese día.</p></details>
+      <details><summary>¿Cómo es el traslado?</summary><p>Nos ocupamos de coordinar la logística para que todo llegue a horario. El valor del traslado depende de la ubicación exacta del evento y te lo pasamos junto con el presupuesto. Consultanos por zonas de alcance.</p></details>
+      <details><summary>¿Cómo se reserva y cómo se paga?</summary><p>La fecha y el horario quedan confirmados al abonar la seña del 50 % del valor total, y con eso se congela el precio. El 50 % restante se abona el día del evento, al momento de la entrega, por transferencia o en efectivo.</p></details>
+      <details><summary>¿Qué pasa si llueve?</summary><p>Es necesario contar con un espacio techado donde podamos instalar los juegos si llueve o hay pronóstico de mal tiempo. Los sectores, plazas y mobiliario deben estar siempre protegidos del agua y el rocío: no son aptos para mojarse ni para usarse con humedad.</p></details>
+      <details><summary>¿Puedo reprogramar el evento?</summary><p>Sí. Avisanos con anticipación para poder cancelar el traslado contratado. La nueva fecha se coordina dentro de los 30 días posteriores, sujeta a disponibilidad. Si lo que contrataste no estuviera disponible, podés optar por otro sector de igual valor.</p></details>
+      <details><summary>¿Y si se rompe algo?</summary><p>Si un elemento se rompe por un uso indebido, el costo de reposición o reparación queda a cargo del cliente, tomando como referencia su valor de mercado.</p></details>
+      <details><summary>¿Puedo alquilar solo el mobiliario?</summary><p>No. Las mesas, sillas y mini livings son un adicional de los sectores de juego y no se alquilan por separado.</p></details>
+      <details><summary>¿La calesita se puede instalar en cualquier lugar?</summary><p>Solo en planta baja o en espacios con acceso por rampa. Soporta hasta 150 kg.</p></details>
+      <details><summary>¿Hacen eventos de noche? ¿Incluye animación?</summary><p>Para eventos nocturnos consultanos la modalidad y los sectores disponibles. El alquiler no incluye animación ni coordinación del evento. No subalquilamos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final stripes">
+  <div class="wrap">
+    <img src="assets/img/logo.webp" alt="La Feria" width="120" height="120" style="border-radius:50%" loading="lazy">
+    <h2>Contanos la fecha y armamos el festejo</h2>
+    <p class="lead" style="background:var(--cream);border-radius:16px;padding:10px 16px">Te respondemos por WhatsApp con disponibilidad y presupuesto.</p>
+    <button class="btn btn-wa" data-quiz>Consultar fecha por WhatsApp</button>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>La Feria · Mar del Plata</b><br>Alquiler de juegos infantiles para eventos</div>
+    <div>WhatsApp <a href="https://wa.me/5492233034727" target="_blank" rel="noopener">223 303 4727</a></div>
+    <div>Instagram <a href="https://www.instagram.com/laferiamdq/" target="_blank" rel="noopener">@laferiamdq</a></div>
+  </div>
+</footer>
+
+<div class="bar off" id="bar">
+  <span class="sel" id="sel" hidden></span>
+  <button class="btn btn-wa" data-quiz id="bar-btn">Consultar por WhatsApp</button>
+</div>
+
+<dialog id="detail" aria-labelledby="d-title">
+  <div class="dlg">
+    <div class="dlg-head"><h3 id="d-title"></h3><button class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="dlg-body" id="d-body"></div>
+    <div class="dlg-foot"><button class="pick" id="d-pick" style="flex:none"></button><button class="btn btn-wa btn-sm" id="d-ask">Consultar esta propuesta</button></div>
+  </div>
+</dialog>
+
+<dialog id="quiz" aria-labelledby="q-title">
+  <div class="dlg">
+    <div class="dlg-head"><div class="prog" aria-hidden="true"><i id="q-prog"></i></div><span class="micro" id="q-count"></span><button class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="dlg-body" id="q-body"></div>
+    <div class="dlg-foot"><button class="btn btn-ghost btn-sm" id="q-back">Atrás</button><span id="q-next-wrap"></span></div>
+  </div>
+</dialog>
+
+<script src="assets/js/motion.min.js"></script>
+<script>
+(function(){
+"use strict";
+var WA="5492233034727";
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var money=function(n){return "$"+n.toLocaleString("es-AR")};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+
+/* ---------- Catálogo ---------- */
+var CATS=[
+ {id:"plazas",name:"Plazas",pack:{t:"Plaza + Calesita",p:320000,d:"Elegí una plaza (Blanca, Pastel o Pelotero) y viene con la calesita."}},
+ {id:"tematicas",name:"Plazas temáticas",pack:{t:"Plaza temática",p:370000,d:"Valor por cada plaza. Juegos más ambientación completa del tema."}},
+ {id:"sectores",name:"Sectores de juego",pack:{t:"2 sectores a elección",p:320000,d:"Combiná dos: calesita, mercaditos, heladería, pizzería, cocinita o súper pelotero."}},
+ {id:"superpelotero",name:"Súper pelotero temático",pack:{t:"Súper pelotero con temática",p:350000,d:"Pelotero de 2 × 2 m con tobogán y ambientación. Podés sumar el granero, la casita bosque o las columnas con cartel de dinosaurios."}},
+ {id:"mobiliario",name:"Mobiliario",pack:{t:"Para sentarse y merendar",p:0,d:"El mobiliario es un adicional de los sectores de juego. No se alquila solo."}},
+ {id:"adicionales",name:"Adicionales",pack:{t:"Sumale más diversión",p:0,d:"Extras para agregar a cualquier propuesta."}}
+];
+var ITEMS=[
+ {id:"plaza-blanca",c:"plazas",n:"Plaza Blanca o Pastel",age:"Hasta 4 años",img:["plaza-blanca-1","plaza-blanca-2"],d:"Circuito de madera para trepar, deslizarse y hacer equilibrio.",inc:["Tobogán","Sube y baja","Balancín","Cubo con cilindro","Triángulo con rampa","Caballito de madera","2 tablas de equilibrio","Carpa tipi","Alfombra de pasto sintético (2 × 1,60 m)"]},
+ {id:"plaza-pelotero",c:"plazas",n:"Plaza Pelotero",img:["plaza-pelotero-2","plaza-pelotero-1"],d:"La plaza con pelotero de madera y pelotas en los tonos que elijas.",inc:["Tobogán","Pelotero de madera (tonos de pelotas a elección)","Pata pata","Balancín","Caballito de madera","Carpa tipi con juguetes de madera","Alfombra de pasto sintético (2 × 1,60 m)"]},
+ {id:"selva",c:"tematicas",n:"Plaza Selva",age:"Hasta 4 años",img:["selva-1","selva-2"],d:"Una experiencia de juego inspirada en la naturaleza.",inc:["Alfombra de pasto sintético","Pelotero de madera","Balancín","Tobogán","Sube y baja","Carteles decorativos","2 jeeps de madera","2 almohadones de arpillera","Carpa tipi","Fogata de tela","Peluches: mono, león, 3 jirafas y cocodrilo","Binoculares y cámara de fotos","Elefante mecedor de madera","Rinoceronte mecedor de madera"]},
+ {id:"osos",c:"tematicas",n:"Plaza Osos",age:"Hasta 2 años",img:["osos-1","osos-2"],d:"Un espacio pensado para los más pequeños.",inc:["Alfombra de goma","Pelotero de madera","Balancín","Tobogán","Sube y baja","Cubo","Rampa","4 osos de peluche","Triciclo","Carrito de bebés","Carpa tipi","Luna grande con hamaca decorativa para oso","Cubos decorativos A, B, C","Sillón mini Gervasoni blanco doble"]},
+ {id:"bosque",c:"tematicas",n:"Plaza Bosque",age:"Hasta 4 años",img:["bosque-1","bosque-2"],d:"Un rincón de naturaleza, imaginación y juego simbólico.",inc:["Alfombra de pasto sintético","Pelotero de madera","Balancín","Tobogán","Sube y baja","Casita bosque con cocina y juego de té","Canasta con frutas","Mesa con 4 bancos","Carteles decorativos","2 pinos decorativos","2 hongos decorativos","2 jeeps de madera","2 almohadones tronco","Animales: 2 ardillas, 1 ciervo, 2 zorros, 1 conejo, 1 castor, 1 mapache y 1 suricata"]},
+ {id:"granja",c:"tematicas",n:"Plaza Granja",age:"Hasta 4 años",img:["granja-1","granja-2"],d:"Para descubrir, explorar y jugar a la vida en la granja.",inc:["Alfombra de pasto sintético","Pelotero de madera","Balancín","Tobogán","Sube y baja","Mesa con dos sillas","3 cubos decorativos símil fardos","Peluches: 2 chanchos, 1 gato, 2 gallinas y 1 gallo","2 caballos de palo","Granero de madera","Cocina chica con accesorios"]},
+ {id:"jurassic",c:"tematicas",n:"Plaza Jurassic",age:"Hasta 4 años",img:["jurassic-1","jurassic-2"],d:"Una aventura llena de dinosaurios, exploración y diversión.",inc:["Alfombra de pasto sintético","Pelotero jurásico","Balancín","Tobogán","Sube y baja","Columnas y cartel decorativo","2 jeeps de madera","Cubos decorativos","2 garras","2 dinos con palo","Carteles decorativos","Fogata","Binoculares","Carpa tipi","2 cabezas de dinos títeres de goma","6 dinosaurios de goma"]},
+ {id:"mercaditos",c:"sectores",n:"Mercaditos",img:["mercaditos-1","mercaditos-2"],d:"Dos mercados con toldo de tela: panadería y verdulería.",inc:["Panadería: 2 canastos con 3 panes de tela cada uno","Mix de galletas, donas y porciones de torta de madera","3 bolsas de compras","Verdulería: 2 cajones con mix de verduras de tela","3 bolsas de compras","2 delantales","1 carrito de súper"]},
+ {id:"heladeria",c:"sectores",n:"Heladería",img:["heladeria-2","heladeria-1"],d:"Un puesto de helados para atender y sentarse a tomar uno.",inc:["Estructura de heladería","6 helados de madera","1 posa tortas con alfajores","1 postre helado","3 bandejas con galletas","Banco de plaza con mesita","Pizarra de heladería","2 sillas de junco y madera"]},
+ {id:"pizzeria",c:"sectores",n:"Pizzería",img:["pizzeria-1","pizzeria-2"],d:"Horno pizzero, caja registradora y mesa para los comensales.",inc:["Estructura con horno pizzero","Caja registradora","2 pizzas de madera con pala","Empanadas de tela","Cocina con horno","Cajas de cartón","Mesa redonda con dos bancos","Mantel y 4 servilletas cuadrillé","4 platos descartables"]},
+ {id:"cocina",c:"sectores",n:"Cocina",img:["cocina-1","cocina-2"],d:"Una cocinita completa con electrodomésticos de madera.",inc:["Mueble de cocina","Mueble estantería con 4 electrodomésticos de madera (licuadora, cafetera, batidora y tostadora)","Set de ollas de metal","Bandeja con juego de té","Mesa con dos sillas","Comidas de tela","Delantal"]},
+ {id:"calesita",c:"sectores",n:"Calesita",img:["calesita-2","calesita-1"],d:"La estrella de la feria. Techo rosa o gris con rayas blancas, o blanco con puntilla.",inc:["Techo rosa con rayas blancas","Techo gris con rayas blancas","Techo blanco con puntilla","Capacidad hasta 150 kg"],warn:"Solo se alquila en planta baja o en espacios con acceso por rampa."},
+ {id:"superpelotero",c:"sectores",n:"Súper pelotero con tobogán",img:["superpelotero-1","superpelotero-3","superpelotero-2"],d:"2 × 2 m de pelotas blancas combinables con el color que quieras.",inc:["Tamaño: 2 × 2 m","Tobogán","Funda rayada gris y blanca, blanca lisa o símil tronco","Pelotas blancas combinables con gris, rosa pastel, celeste, verde agua, amarillo, rojo, azul, negro, ocre, verde o fucsia"]},
+ {id:"sp-osos",c:"superpelotero",n:"Súper pelotero Osos",img:["sp-osos-1"],full:1,d:"Con luna, cubos A B C y carpa tipi con sillón.",inc:["Súper pelotero con tobogán","4 osos","Luna con hamaca decorativa","3 cubos decorativos (A, B y C)","1 carpa tipi con sillón doble Gervasoni"]},
+ {id:"sp-selva",c:"superpelotero",n:"Súper pelotero Selva",img:["sp-selva-1"],full:1,d:"León, jirafas, elefante y fueguito de exploradores.",inc:["Súper pelotero con tobogán","1 león","1 cocodrilo","3 jirafas","1 elefante","3 carteles decorativos","2 almohadones","1 fueguito","1 carpa tipi con sillita"]},
+ {id:"sp-granja",c:"superpelotero",n:"Súper pelotero Granja",img:["sp-granja-1"],full:1,d:"Animales de granja, cocina chica y cajón de verduras.",inc:["Súper pelotero con tobogán","2 chanchos","1 gato","1 caballo","2 gallinas","2 caballos de palo","1 pato","Cubos símil fardos","Cocina chica","Mesa con dos sillas","Cajón con verduras","2 almohadones de arpillera"],warn:"No incluye granero. Consultá el valor para sumarlo."},
+ {id:"sp-bosque",c:"superpelotero",n:"Súper pelotero Bosque",img:["sp-bosque-1"],full:1,d:"Ardillas, zorros, hongos y pinos decorativos.",inc:["Súper pelotero con tobogán","2 ardillas","1 ciervo pequeño","1 conejito","1 zorro rojo","1 zorro blanco y negro","1 mapache","1 suricata","2 hongos decorativos","2 pinos decorativos","2 troncos","2 carteles decorativos","2 almohadones símil tronco","1 carpa tipi con sillita"],warn:"No incluye casita bosque. Consultá el valor para sumarla."},
+ {id:"sp-jurassic",c:"superpelotero",n:"Súper pelotero Jurassic",img:["sp-jurassic-1"],full:1,d:"Dinosaurios, garras y binoculares para explorar.",inc:["Súper pelotero con tobogán","4 dinosaurios de goma","1 garra de goma","1 dino títere de goma (cabeza)","2 dinos con palo","3 cubos decorativos","3 carteles decorativos","2 almohadones de arpillera","1 carpa tipi con sillita","Binoculares"],warn:"No incluye columnas con cartel. Consultá el valor para sumarlas."},
+ {id:"costa",c:"mobiliario",n:"Sector Costa",price:"12 lugares "+money(80000),img:["costa-1","costa-2"],d:"Mesas bajas de madera con sillas playeras o de junco. También para 18 ("+money(120000)+") o 24 chicos ("+money(160000)+").",inc:["2 mesas de madera rectangulares","Medida: 1,20 × 0,80 × 0,45 m","12 sillas playeras o de junco","Opción para 18 lugares: "+money(120000),"Opción para 24 lugares: "+money(160000)]},
+ {id:"malibu",c:"mobiliario",n:"Sector Malibú o Pampa",price:"12 lugares "+money(80000),img:["malibu-2","malibu-1"],d:"Mesas redondas blancas. Malibú con sillas playeras, Pampa con sillas de junco.",inc:["3 mesas redondas con tapa blanca","12 sillas playeras (Malibú) o de junco (Pampa)"]},
+ {id:"living-gervasoni",c:"mobiliario",n:"Mini living Gervasoni",price:money(50000),img:["living-gervasoni-1","living-gervasoni-2"],d:"Un living a su medida, con 6 lugares.",inc:["2 sillones mini Gervasoni","2 bancos muelita","1 mesa redonda","2 banquitos redondos","2 carpas tipi"]},
+ {id:"living-playero",c:"mobiliario",n:"Mini living Playero",price:money(50000),img:["living-playero-1","living-playero-2"],d:"Estilo playero con junco y madera, con 6 lugares.",inc:["1 sillón doble playero","2 sillas de junco","1 mesa rectangular","2 banquitos cuadrados","2 carpas tipi"]},
+ {id:"living-blanco",c:"mobiliario",n:"Mini living Gervasoni blanco",price:money(50000),img:["living-blanco-2","living-blanco-1"],d:"Todo en blanco, con 6 lugares.",inc:["2 sillones dobles Gervasoni","2 sillones mini Gervasoni","1 mesa rectangular blanca","2 carpas tipi"]},
+ {id:"bloques",c:"adicionales",n:"Bloques grandes por 60",price:money(50000),img:["bloques-1"],d:"40 blancos combinables con rojo, verde, azul o amarillo.",inc:["60 bloques grandes","40 blancos combinables con rojo, verde, azul o amarillo"]},
+ {id:"patapata",c:"adicionales",n:"Moto pata pata",price:money(35000),img:["patapata-1"],d:"Para andar empujándose con los pies.",inc:["1 moto pata pata"]},
+ {id:"autos",c:"adicionales",n:"Pista de autos",price:money(25000),img:["autos-1"],d:"Alfombra de lona con calles y 8 autitos.",inc:["Alfombra pista de lona","8 autitos"]},
+ {id:"rayuela",c:"adicionales",n:"Lona rayuela",price:money(15000),img:["rayuela-1"],d:"La rayuela de siempre, lista para saltar.",inc:["Alfombra rayuela de lona"]}
+];
+var EXTRAS=[
+ {id:"x-pelotero-chico",n:"Pelotero de madera chico",p:60000},{id:"x-subeybaja",n:"Sube y baja",p:30000},{id:"x-sillon",n:"Sillón doble Gervasoni blanco",p:20000},
+ {id:"x-tipi",n:"Carpa tipi",p:15000},{id:"x-colchonetas",n:"2 colchonetas para carpa",p:15000}
+];
+var NAME={}; ITEMS.forEach(function(i){NAME[i.id]=i.n}); EXTRAS.forEach(function(i){NAME[i.id]=i.n});
+var picked=[], current="plazas", ballNote="";
+
+function isPicked(id){return picked.indexOf(id)>-1}
+function toggle(id){var k=picked.indexOf(id); if(k>-1)picked.splice(k,1); else picked.push(id); sync()}
+function sync(){
+  $$("[data-pick]").forEach(function(b){var on=isPicked(b.dataset.pick); b.setAttribute("aria-pressed",on); b.textContent=on?"✓ Sumado":(b.dataset.short?"Sumar":"Sumar a mi consulta")});
+  var sel=$("#sel"); sel.hidden=!picked.length;
+  sel.innerHTML="<b>"+picked.length+"</b> "+(picked.length===1?"propuesta elegida":"propuestas elegidas");
+  $("#bar-btn").textContent=picked.length?"Consultar lo elegido":"Consultar por WhatsApp";
+}
+function renderTabs(){
+  $("#tabs").innerHTML=CATS.map(function(c){return '<button role="tab" id="tab-'+c.id+'" aria-selected="'+(c.id===current)+'" data-tab="'+c.id+'">'+c.name+'</button>'}).join("");
+}
+function renderCat(){
+  var c=CATS.filter(function(x){return x.id===current})[0];
+  $("#pack").innerHTML='<div class="pack"><b>'+c.pack.t+'</b>'+(c.pack.p?'<span class="price">'+money(c.pack.p)+'</span>':'')+'<p>'+c.pack.d+'</p></div>';
+  $("#grid").innerHTML=ITEMS.filter(function(i){return i.c===current}).map(function(i){
+    return '<article class="card">'+(i.age?'<span class="badge">'+i.age+'</span>':'')+
+     '<button class="ph" data-open="'+i.id+'" aria-label="Ver qué incluye '+esc(i.n)+'"><img src="assets/img/'+i.img[0]+'.webp" alt="'+esc(i.n)+'" loading="lazy"></button>'+
+     '<div class="bd"><h3>'+i.n+'</h3>'+(i.price?'<span class="meta">'+i.price+'</span>':'<span class="meta">≈ 6 chicos jugando a la vez</span>')+'<p>'+i.d+'</p>'+
+     '<div class="row"><button class="pick" data-pick="'+i.id+'"></button><button class="more" data-open="'+i.id+'">Qué incluye</button></div></div></article>'}).join("");
+  var ex=$("#extras"); ex.hidden=current!=="adicionales";
+  ex.innerHTML=EXTRAS.map(function(e){return '<div class="extra"><span>'+e.n+'</span><b>'+money(e.p)+'</b><button class="pick" data-short="1" data-pick="'+e.id+'"></button></div>'}).join("");
+  sync();
+  if(window.Motion&&!reduce){try{Motion.animate("#grid .card",{opacity:[0,1],y:[18,0]},{duration:.45,delay:Motion.stagger(.05)})}catch(e){}}
+}
+var openId=null;
+function openDetail(id){
+  var i=ITEMS.filter(function(x){return x.id===id})[0]; if(!i)return; openId=id;
+  $("#d-title").textContent=i.n;
+  $("#d-body").innerHTML='<div class="gal'+(i.full?' full':'')+'">'+i.img.map(function(s){return '<img src="assets/img/'+s+'.webp" alt="'+esc(i.n)+'">'}).join("")+'</div>'+
+    '<p>'+i.d+(i.age?' <b>'+i.age+'.</b>':'')+'</p>'+(i.warn?'<p class="warn">'+i.warn+'</p>':'')+
+    '<div><p class="eyebrow" style="margin-bottom:8px">¿Qué incluye?</p><ul class="incl">'+i.inc.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul></div>';
+  var p=$("#d-pick"); p.dataset.pick=id; sync(); $("#detail").showModal(); $("#d-body").scrollTop=0;
+}
+
+/* ---------- Calculadora de chicos ---------- */
+function calc(){
+  var n=+$("#kids-range").value, sp=Math.ceil(n/6);
+  $("#kids-out").textContent=n;
+  var cls=["","b","c","d"], h=""; for(var k=0;k<n;k++)h+='<i class="'+cls[Math.floor(k/6)%4]+'"></i>'; $("#kids-dots").innerHTML=h;
+  var t,x;
+  if(sp<=1){t="1 espacio de juego";x="Una plaza o un sector alcanza para que jueguen todos a la vez."}
+  else if(sp===2){t="2 espacios de juego";x="Por ejemplo Plaza + Calesita, o 2 sectores a elección. Así nadie espera turno."}
+  else if(sp===3){t="3 espacios de juego";x="Por ejemplo una plaza temática más 2 sectores, como mercaditos y súper pelotero."}
+  else{t=sp+" espacios de juego";x="Combiná plazas, sectores y adicionales. Contanos la cantidad y te armamos una propuesta a medida."}
+  $("#calc-title").textContent=t; $("#calc-text").textContent=x+" Cada espacio está pensado para unos 6 chicos.";
+  quiz.kidsHint=n;
+}
+
+/* ---------- Prefiltro de WhatsApp ---------- */
+var quiz={step:0,a:{evento:"",fecha:"",sinFecha:false,horario:"",chicos:"",edades:[],zona:"",lugar:"",techado:"",nombre:""},kidsHint:10};
+var STEPS=[
+ {t:"¿Qué vas a festejar?",s:"Así sabemos cómo acompañarte.",k:"evento",o:["Cumpleaños","Bautismo o comunión","Baby shower","Navidad o fin de año","Evento familiar","Otro"]},
+ {t:"¿Cuándo es?",s:"Con la fecha revisamos la disponibilidad."},
+ {t:"¿Cuántos chicos van a jugar?",s:"Cada propuesta es para unos 6 chicos a la vez."},
+ {t:"¿Dónde lo hacés?",s:"El traslado se cotiza según la ubicación."},
+ {t:"¿Qué te gustaría?",s:"Elegí lo que te guste. Si no estás segura, te asesoramos."}
+];
+function chips(key,opts,multi){
+  return '<div class="opts">'+opts.map(function(o){var on=multi?quiz.a[key].indexOf(o)>-1:quiz.a[key]===o;
+    return '<button type="button" class="opt" data-k="'+key+'" data-v="'+esc(o)+'"'+(multi?' data-m="1"':'')+' aria-pressed="'+on+'">'+o+'</button>'}).join("")+'</div>';
+}
+function message(){
+  var a=quiz.a,L=["¡Hola La Feria! 👋 Quiero consultar por el alquiler de juegos.",""];
+  if(a.nombre)L.push("👤 Soy "+a.nombre);
+  L.push("🎉 Evento: "+(a.evento||"A definir"));
+  var f="A definir"; if(a.fecha&&!a.sinFecha){var p=a.fecha.split("-");f=p[2]+"/"+p[1]+"/"+p[0]}
+  L.push("📅 Fecha: "+f+(a.horario?" · "+a.horario:""));
+  L.push("🧒 Chicos: "+(a.chicos||"A definir")+(a.edades.length?" · Edades: "+a.edades.join(", "):""));
+  L.push("📍 Zona: "+(a.zona||"A definir")+(a.lugar?" · "+a.lugar:""));
+  if(a.techado)L.push("☔ Espacio techado: "+a.techado);
+  L.push("");
+  if(picked.length){L.push("🎠 Me interesa:");picked.forEach(function(id){L.push("• "+NAME[id])})}
+  else L.push("🎠 Todavía no elegí propuesta, me gustaría que me asesoren.");
+  if(ballNote&&(isPicked("superpelotero")||isPicked("plaza-pelotero")))L.push("⚪ Pelotas: "+ballNote);
+  L.push("","¿Me confirman disponibilidad y presupuesto? ¡Gracias!");
+  return L.join("\n");
+}
+function renderQuiz(){
+  var s=quiz.step,a=quiz.a,h="",total=STEPS.length+1;
+  $("#q-prog").style.width=((s+1)/total*100)+"%"; $("#q-count").textContent="Paso "+(s+1)+" de "+total;
+  $("#q-back").style.visibility=s?"visible":"hidden";
+  if(s<STEPS.length){var st=STEPS[s]; h='<div class="q"><h4 id="q-title">'+st.t+'</h4><p>'+st.s+'</p>';
+    if(s===0)h+=chips("evento",st.o);
+    if(s===1){var today=new Date().toISOString().slice(0,10);
+      h+='<div class="fld"><label for="q-fecha">Fecha del evento</label><input type="date" id="q-fecha" min="'+today+'" value="'+a.fecha+'"></div>'+
+         '<div class="opts" style="margin-top:10px"><button type="button" class="opt" id="q-sinfecha" aria-pressed="'+a.sinFecha+'">Todavía no la definí</button></div>'+
+         '<div class="fld"><span class="lb">Horario aproximado</span>'+chips("horario",["Mañana","Mediodía","Tarde","Noche"])+'</div>'}
+    if(s===2){h+=chips("chicos",["Hasta 6","7 a 12","13 a 18","Más de 18"])+'<div class="fld"><span class="lb">¿Qué edades tienen? Podés marcar varias</span>'+chips("edades",["Menos de 1 año","1 a 2 años","3 a 4 años","5 años o más"],true)+'</div>'}
+    if(s===3){h+='<div class="fld"><label for="q-zona">Barrio o zona</label><input type="text" id="q-zona" placeholder="Ej.: Los Troncos, Rumencó, Camet, Sierra de los Padres" value="'+esc(a.zona)+'" autocomplete="off"></div>'+
+         '<div class="fld"><span class="lb">Tipo de lugar</span>'+chips("lugar",["Casa con jardín","Quincho","Departamento o SUM","Salón","Parque o aire libre"])+'</div>'+
+         '<div class="fld"><span class="lb">¿Tenés un espacio techado por si llueve?</span>'+chips("techado",["Sí","No","No estoy segura"])+'</div>'}
+    if(s===4){h+='<div class="opts">'+ITEMS.filter(function(i){return i.c!=="adicionales"}).map(function(i){return '<button type="button" class="opt" data-qp="'+i.id+'" aria-pressed="'+isPicked(i.id)+'">'+i.n+'</button>'}).join("")+'</div>'+
+         '<div class="fld"><label for="q-nombre">Tu nombre</label><input type="text" id="q-nombre" placeholder="¿Cómo te llamás?" value="'+esc(a.nombre)+'" autocomplete="given-name"></div>'}
+    h+='</div>';
+    $("#q-next-wrap").innerHTML='<button class="btn btn-blue btn-sm" id="q-next">'+(s===STEPS.length-1?"Ver mi mensaje":"Siguiente")+'</button>';
+  }else{
+    var m=message();
+    h='<div class="q"><h4 id="q-title">¡Listo! Este es tu mensaje</h4><p>Se abre WhatsApp con el mensaje ya escrito. Solo tenés que tocar enviar.</p><div class="preview">'+esc(m)+'</div></div>';
+    $("#q-next-wrap").innerHTML='<a class="btn btn-wa btn-sm" id="q-send" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(m)+'">Abrir WhatsApp</a>';
+  }
+  var b=$("#q-body"); b.innerHTML=h; b.scrollTop=0;
+  if(window.Motion&&!reduce){try{Motion.animate(b.firstChild,{opacity:[0,1],x:[24,0]},{duration:.3})}catch(e){}}
+}
+function saveInputs(){var f=$("#q-fecha"),z=$("#q-zona"),n=$("#q-nombre"); if(f){quiz.a.fecha=f.value; if(f.value)quiz.a.sinFecha=false} if(z)quiz.a.zona=z.value.trim(); if(n)quiz.a.nombre=n.value.trim()}
+function openQuiz(){
+  if(!quiz.a.chicos&&quiz.touchedKids){var n=quiz.kidsHint; quiz.a.chicos=n<=6?"Hasta 6":n<=12?"7 a 12":n<=18?"13 a 18":"Más de 18"}
+  quiz.step=0; renderQuiz(); var d=$("#detail"); if(d.open)d.close(); $("#quiz").showModal();
+}
+
+/* ---------- Eventos ---------- */
+document.addEventListener("click",function(e){
+  var t=e.target.closest("button,a"); if(!t)return;
+  if(t.dataset.tab){current=t.dataset.tab; renderTabs(); renderCat(); return}
+  if(t.dataset.pick){toggle(t.dataset.pick); return}
+  if(t.dataset.open){openDetail(t.dataset.open); return}
+  if("quiz" in t.dataset){openQuiz(); return}
+  if("close" in t.dataset){t.closest("dialog").close(); return}
+  if(t.id==="d-ask"){if(openId&&!isPicked(openId))toggle(openId); openQuiz(); return}
+  if(t.dataset.k){var k=t.dataset.k,v=t.dataset.v; saveInputs();
+    if(t.dataset.m){var arr=quiz.a[k],x=arr.indexOf(v); if(x>-1)arr.splice(x,1); else arr.push(v)} else quiz.a[k]=quiz.a[k]===v?"":v;
+    $$('.opt[data-k="'+k+'"]').forEach(function(b){b.setAttribute("aria-pressed",t.dataset.m?quiz.a[k].indexOf(b.dataset.v)>-1:quiz.a[k]===b.dataset.v)});
+    if(quiz.step===0&&quiz.a.evento){setTimeout(function(){if(quiz.step===0){quiz.step=1;renderQuiz()}},220)}
+    return}
+  if(t.dataset.qp){toggle(t.dataset.qp); t.setAttribute("aria-pressed",isPicked(t.dataset.qp)); return}
+  if(t.id==="q-sinfecha"){quiz.a.sinFecha=!quiz.a.sinFecha; if(quiz.a.sinFecha){quiz.a.fecha="";$("#q-fecha").value=""} t.setAttribute("aria-pressed",quiz.a.sinFecha); return}
+  if(t.id==="q-next"){saveInputs(); quiz.step++; renderQuiz(); return}
+  if(t.id==="q-back"){saveInputs(); if(quiz.step>0){quiz.step--; renderQuiz()} return}
+  if(t.id==="pit-add"){if(!isPicked("superpelotero"))toggle("superpelotero"); t.textContent="✓ Sumado a tu consulta"; return}
+});
+$$("dialog").forEach(function(d){d.addEventListener("click",function(e){if(e.target===d)d.close()})});
+$("#kids-range").addEventListener("input",function(){quiz.touchedKids=true;calc()});
+
+/* ---------- Pelotero ---------- */
+var COLORS=[["Rosa pastel","#f6c9dc"],["Celeste","#cfe0f5"],["Verde agua","#9fd8cf"],["Gris","#b9bcc0"],["Amarillo","#ffd84d"],["Ocre","#f2b04c"],["Rojo","#f0524b"],["Fucsia","#ff5cc0"],["Verde","#3ea66b"],["Azul","#1f57c3"],["Negro","#2a2a2a"]];
+var chosen=["Rosa pastel","Celeste"];
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var cv=$("#pit"),cx=cv.getContext("2d"),balls=[],W=0,H=0,R=18,ptr={x:-999,y:-999,on:false},running=false;
+function palette(){var p=["#ffffff"]; COLORS.forEach(function(c){if(chosen.indexOf(c[0])>-1)p.push(c[1])}); return p}
+function recolor(){var p=palette(); balls.forEach(function(b,i){b.c=i%2===0?p[0]:p[1+((i>>1)%Math.max(1,p.length-1))]||p[0]});
+  ballNote="blancas"+(chosen.length?" + "+chosen.join(", ").toLowerCase():""); $("#pit-add").textContent="Sumar pelotero con estos colores"}
+function renderSw(){$("#swatches").innerHTML=COLORS.map(function(c){return '<button class="sw" style="--c:'+c[1]+'" data-sw="'+c[0]+'" aria-pressed="'+(chosen.indexOf(c[0])>-1)+'"><i></i>'+c[0]+'</button>'}).join("")}
+$("#swatches").addEventListener("click",function(e){var b=e.target.closest("[data-sw]"); if(!b)return; var n=b.dataset.sw,k=chosen.indexOf(n);
+  if(k>-1)chosen.splice(k,1); else{if(chosen.length>=3)chosen.shift(); chosen.push(n)} renderSw(); recolor(); balls.forEach(function(b){b.vy-=3+Math.random()*4}); if(reduce)draw()});
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(2,window.devicePixelRatio||1); W=r.width;H=r.height; cv.width=W*d; cv.height=H*d; cx.setTransform(d,0,0,d,0,0); R=W<420?14:18;
+  var n=Math.round(W*H*.5/(Math.PI*R*R)); balls=[]; for(var i=0;i<n;i++)balls.push({x:R+Math.random()*(W-2*R),y:H-R-Math.random()*H*.9,vx:0,vy:0,c:"#fff"}); recolor()}
+function step(){
+  for(var i=0;i<balls.length;i++){var b=balls[i]; b.vy+=.35; b.vx*=.985; b.vy*=.985;
+    if(ptr.on){var dx=b.x-ptr.x,dy=b.y-ptr.y,d2=dx*dx+dy*dy; if(d2<4900&&d2>1){var d=Math.sqrt(d2),f=(70-d)/70*1.6; b.vx+=dx/d*f; b.vy+=dy/d*f}}
+    b.x+=b.vx; b.y+=b.vy;
+    if(b.x<R){b.x=R;b.vx*=-.5} if(b.x>W-R){b.x=W-R;b.vx*=-.5} if(b.y>H-R){b.y=H-R;b.vy*=-.35}}
+  for(var k=0;k<2;k++)for(i=0;i<balls.length;i++)for(var j=i+1;j<balls.length;j++){var a=balls[i],c=balls[j],ex=c.x-a.x,ey=c.y-a.y,q=ex*ex+ey*ey;
+    if(q<4*R*R&&q>.01){var dd=Math.sqrt(q),o=(2*R-dd)/2,nx=ex/dd,ny=ey/dd; a.x-=nx*o;a.y-=ny*o;c.x+=nx*o;c.y+=ny*o;
+      var rv=(c.vx-a.vx)*nx+(c.vy-a.vy)*ny; if(rv<0){a.vx+=rv*nx*.5;a.vy+=rv*ny*.5;c.vx-=rv*nx*.5;c.vy-=rv*ny*.5}}}
+}
+function draw(){cx.clearRect(0,0,W,H); for(var i=0;i<balls.length;i++){var b=balls[i];
+  cx.beginPath();cx.arc(b.x,b.y,R,0,6.283);cx.fillStyle=b.c;cx.fill();cx.strokeStyle="rgba(60,90,110,.18)";cx.lineWidth=1;cx.stroke();
+  cx.beginPath();cx.arc(b.x-R*.32,b.y-R*.36,R*.28,0,6.283);cx.fillStyle="rgba(255,255,255,.55)";cx.fill()}}
+function loop(){if(!running)return; step(); draw(); requestAnimationFrame(loop)}
+function settle(){for(var i=0;i<240;i++)step(); draw()}
+function pos(e){var r=cv.getBoundingClientRect(); ptr.x=e.clientX-r.left; ptr.y=e.clientY-r.top; ptr.on=true}
+cv.addEventListener("pointermove",pos); cv.addEventListener("pointerdown",pos); cv.addEventListener("pointerleave",function(){ptr.on=false});
+var rt; window.addEventListener("resize",function(){clearTimeout(rt); rt=setTimeout(function(){var w=cv.getBoundingClientRect().width; if(Math.abs(w-W)>2){size(); settle()}},200)});
+function startPit(){size(); settle(); if(reduce)return;
+  if("IntersectionObserver" in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!running){running=true;balls.forEach(function(b){b.vy-=4+Math.random()*7;b.vx+=Math.random()*4-2});loop()} else if(!v)running=false},{threshold:.05}).observe(cv)} else{running=true;loop()}}
+
+function barVis(){$("#bar").classList.toggle("off",window.scrollY<420)}
+window.addEventListener("scroll",barVis,{passive:true}); barVis();
+/* ---------- Inicio ---------- */
+renderTabs(); renderCat(); calc(); renderSw(); startPit();
+if(window.Motion&&!reduce){try{
+  var M=Motion;
+  M.animate(".hero-copy > *",{opacity:[0,1],y:[22,0]},{duration:.6,delay:M.stagger(.08),ease:"easeOut"});
+  M.animate(".collage figure",{opacity:[0,1],scale:[.85,1]},{duration:.7,delay:M.stagger(.14,{startDelay:.2}),ease:[.2,.9,.3,1.2]});
+  $$("[data-reveal]").forEach(function(el){var r=el.getBoundingClientRect(); if(r.top>window.innerHeight){M.inView(el,function(){M.animate(el,{opacity:[.35,1],y:[26,0]},{duration:.55,ease:"easeOut"})},{amount:.2})}});
+  M.scroll(M.animate(".collage .a",{y:[0,-40]},{ease:"linear"}),{target:$(".hero")});
+  M.scroll(M.animate(".collage .b",{y:[0,30]},{ease:"linear"}),{target:$(".hero")});
+}catch(e){}}
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"La Feria","description":"Alquiler de juegos infantiles para eventos en Mar del Plata","areaServed":"Mar del Plata","telephone":"+54 9 223 303-4727","sameAs":["https://www.instagram.com/laferiamdq/"],"address":{"@type":"PostalAddress","addressLocality":"Mar del Plata","addressRegion":"Buenos Aires","addressCountry":"AR"}}
+</script>
+</body>
+</html>
